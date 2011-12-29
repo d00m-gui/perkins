@@ -1,0 +1,210 @@
+/*********************************************************************/
+/*  ____           _    _                                            */
+/* |  _ \ ___ _ __| | _(_)_ __  ___                                  */
+/* | |_) / _ \ '__| |/ / | '_ \/ __|                                 */
+/* |  __/  __/ |  |   <| | | | \__ \                                 */
+/* |_|   \___|_|  |_|\_\_|_| |_|___/.LESS                            */
+/* Design & Develop the Web, Faster.                                 */
+/*                                                                   */
+/*********************************************************************/
+/*                                                                   */
+/*  Developed by:        Carlos Elias                                */
+/*                       Rodrigo Fuentealba                          */
+/*                       Alvaro Veliz                                */
+/*                                                                   */
+/*  License:             MIT                                         */
+/*                                                                   */
+/*********************************************************************/
+
+.font(@weight: normal, @size: 16px, @lineheight: 20px, @fontfamily: @sans) {
+  font-family: @fontfamily;
+  font-size: @size;
+  font-weight: @weight;
+  line-height: @lineheight;
+}
+
+.radius(@radius: 5px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -o-border-radius: @radius;
+  -ms-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.rotate(@deg: -45deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  -o-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+
+.bs(@bsval: 0px 0px 0.83em #333, @due: 0 0 0 transparent) {
+  -moz-box-shadow: @bsval, @due;
+  -webkit-box-shadow: @bsval, @due;
+  -o-box-shadow: @bsval, @due;
+  -box-shadow: @bsval, @due;
+}
+#gradient {
+  .h(@startColor: #555, @endColor: #333, @img: none) {
+    /* Legacy browsers */
+    background: @endColor @img;
+    /* Recent browsers */
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: auto auto !important;
+    background-size: 100% 100%;
+    background: @img, -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+    background: @img, -webkit-linear-gradient(right center, @startColor, @endColor);
+    background: @img, -moz-linear-gradient(right center, @startColor, @endColor);
+    background: @img, -o-linear-gradient(left,  @startColor,  @endColor);
+    background: @img, -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+    filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=1)",@startColor,@endColor));
+    -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=1))",@startColor,@endColor);
+  }
+  .v(@startColor: #555, @endColor: #333, @img: none) {
+    /* Legacy browsers */
+    background: @endColor @img;
+    /* Recent browsers */
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: auto auto !important;
+    background-size: 100% 100%;
+    background: @img, -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+    background: @img, -webkit-linear-gradient(@startColor, @endColor);
+    background: @img, -moz-linear-gradient(@startColor, @endColor);
+    background: @img, -o-linear-gradient(top,  @startColor,  @endColor);
+    background: @img, -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+    filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=0)",@startColor,@endColor));
+    -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=0))",@startColor,@endColor);
+  }
+  .hline(@startColor: #B0BAC5, @midColor1: #9DA7B2, @midColor2: #919CA8, @endColor: #7E8A98, @img: none) {
+    background: @endColor @img;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: auto auto !important;
+    background-size: 100% 100%;
+    background: @img, -moz-linear-gradient(top, @startColor 0%, @midColor1 50%, @midColor2 51%, @endColor 100%);
+    background: @img, -webkit-gradient(linear, left top, left bottom, color-stop(0%,@startColor), color-stop(50%,@midColor1), color-stop(51%,@midColor2), color-stop(100%,@endColor));
+    filter: e(%("progid:DXImageTransform.Microsoft.Gradient(StartColorStr='%d', EndColorStr='%d', GradientType=0)",@startColor,@endColor));
+    -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=0))",@startColor,@endColor);
+  }
+}
+// Text Shadow
+.ts(@tsval: 0px 1px 0px #fff) {
+  text-shadow: @tsval;
+}
+// Text Align
+.ta(@side: left) {
+  text-align: @side;
+}
+// Transitions
+.transition(@transition: all linear .2s) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  transition: @transition;
+}
+
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+#alpha {
+  .background(@color: #fff, @alpha: 1) {
+    background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  }
+  .border(@color: #fff, @alpha: 1) {
+    border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+    background-clip: padding-box;
+  }
+}
+
+// Buttons
+.button(@color: #ccc, @text_color: #444, @text_shadow: 0 1px 0 rgba(255,255,255,0.40), @padding: 9px 15px 7px, @rounded: 5px, @font_weight: 300) {
+  display: inline-block;
+  padding: @padding;
+  color: @text_color;
+  line-height: 0.5;
+  border: 1px solid rgba(45, 45, 45, 0.50);
+  margin: 3px 0;
+  background: @color;
+  #gradient > .v(@color, darken(@color,10%));
+  .ts(@text_shadow);
+  .radius(@rounded);
+  .bs(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
+  font-weight: @font_weight;
+  &:hover {
+    background: darken(@color,10%);
+    #gradient > .v(darken(@color,10%), @color);
+    .bs(0 1px 0 rgba(255,255,255,0.40), 0 2px 1px rgba(32,32,32,0.20) inset);
+    color: @text_color;
+    text-decoration: none;
+  }
+}
+
+// Navigation
+.nav(@parentSide: left, @childSide: left, @padding: 5px 10px, @margin: 0 10px 0 0) {
+  margin: 0;
+  padding: 0;
+  float: @parentSide;
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: @childSide;
+  }
+  a {
+    display: block;
+    padding: @padding;
+    margin: @margin;
+    text-decoration: none;
+  }
+}
+
+// CSS3 Content Columns
+.content-columns(@column_count: 2, @column_gap: @margin) {
+  -webkit-column-count: @column_count;
+  -webkit-column-gap: @column_gap;
+  -moz-column-count: @column_count; 
+  -moz-column-gap: @column_gap;
+  column-count: @column_count; 
+  column-gap: @column_gap;
+}
+
+// Feedback
+.feedback(@bg: #E6EDF5, @font-color: #3D98F1, @border: 1px solid #69B9DA) {
+  padding: 0.9em;
+  margin-bottom: 1em;
+  background: @bg;
+  color: @font-color;
+  border: @border;
+  a {
+    color: @white;
+    background: @font-color;
+    padding: 2px 5px 0;
+    .radius();
+  }
+  a:hover {
+    background: lighten(@font-color, 10%);
+  }
+}
+
+// Table minimal design
+#common-table {
+  .th(@bgColor: lighten(@system, 10%), @padding: 10px) {
+    background: @bgColor;
+    .ts(0 1px 0 rgba(255,255,255,0.40));
+    color: @gray-dark;
+    padding: @padding;
+    border-right: 1px solid @system;
+    border-bottom: 1px solid @system;
+  }
+  .td() {
+    border-bottom: 1px solid @system;
+    border-right: 1px solid @system;
+    padding: 10px;
+  }
+}
+
+// Practical Joke: Implementing CIRCLES @hagarelvikingo
+.circle(@radius: 100px) {
+  width: @radius * 2;
+  height: @radius * 2;
+  .radius(@radius);
+}

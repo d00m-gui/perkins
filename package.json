@@ -1,0 +1,19 @@
+{
+  "name": "perkins",
+  "author": "Carlos Elias <hola@carloselias.cl>",
+  "version": "2.0.1",
+  "description": "A HTML5/CSS3 Framework created by designers and developers to make their life a bit easier.",
+  "keywords": ["web", "server", "cli", "framework", "web development", "CSS3", "HTML5", "LESS", "wireframes"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "bin": "perkins",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies" : { 
+    "commander" : "~0.0.3",
+    "paperboy" : "~0.5.1"
+  }
+}
