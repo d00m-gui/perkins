@@ -12,12 +12,11 @@ In other words, **Perkins 2** is a **CLI** utility made with **NodeJS** to make 
 
 **BTW** If you aren't a command-line type of guy/girl you definitely have to use [Crunch App](http://crunchapp.net/) made by Matt and Matt
 
-##Dependencies
+##Installation
 
-First step you need to install [NodeJS](http://nodejs.org/) then install [npm](http://npmjs.org/) and also you need to do:
+First step you need to install [NodeJS](http://nodejs.org/) then [npm](http://npmjs.org/) finally just run:
 
-    $ npm install -g paperboy
-    $ npm install -g commander
+    $ sudo npm install -g perkins
 
 ##Usage
 
@@ -38,12 +37,12 @@ First step you need to install [NodeJS](http://nodejs.org/) then install [npm](h
         -p, --port <port>  specify the port [8000]
 
 ##TODO
-  - Publish in npm :)
   - Be more helpful in the browser and command-line
   - Integrate some examples and UI Kits
   - Update the framework with the lastest version by @hagarelvikingo
+  - Update the p.erkins.com website ;)
   
-##Special thanks to:
+##Special Thanks:
   - Rodrigo Fuentealba
   - Roderick Lagunas
   - Alvaro Veliz
