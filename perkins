@@ -6,6 +6,7 @@ var path    = require('path'),
     perkins = require('commander'),
     server  = require('paperboy'),
     exec    = require('child_process').exec,
+    rootDir = path.dirname(process.argv[1]),
     p       = '\033[32mPerkins: \033[0m';
 
 perkins
@@ -27,13 +28,20 @@ perkins
     if (path.existsSync(dir)) {
       console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92malready exists\033[0m');
     } else {
-      fs.mkdirSync(dir, 0775);
-      cp = exec('cp -Rv src/ '+dir, function(error, stdout, stderr) {
+      fs.mkdirSync(dir, 0775); 
+      if (path.existsSync(rootDir +'/src')) {ç
+        copypath = rootDir;
+      } else {
+        //sudo npm install -g perkins
+        copypath = path.normalize(rootDir+'/../lib/node_modules/perkins');
+      }
+      // /usr/local/lib/node_modules/perkins/src/
+      cp = exec('cp -Rv '+ copypath +'/src/* '+ dir, function(error, stdout, stderr) {
         console.log(p+'Default Perkins structure in '+dir+' created for you, Sir.');
         console.log(p+stdout+'\n');
         perkins.confirm(p+'Now... did you want me to execute the Perkins Preview HTTP Server? ', function(ok){
           if(ok){
-            initServer(dir); 
+            initServer(dir);
           }else{
             console.log(p+'\033[36mAs you wish, Sir.\033[36m no server running\033[0m')
             console.log(p+'If I may... Do not forget to edit perkins.config.less to met your needs');
@@ -41,12 +49,13 @@ perkins
           }
         });
         if (error !== null) {
-          console.log(p+'Oops something went wrong ' + error + ' probably you are using Windows sorry not supported for now');
+          console.log(p+'Oops something went wrong ' + error);
         }
       });
     }
   });
-  
+    
+
 function log(statCode, url, ip, err) {
   var logStr = p+'\033[90mconnection type '+ statCode + ' viewing the url ' + url + ' from the ip address ' + ip +'\033[0m';
   if (err)
@@ -55,7 +64,10 @@ function log(statCode, url, ip, err) {
 }
 
 function initServer(dir) {
-  var dir = path.join(path.dirname(__filename), dir) || path.join(path.dirname(__filename), '.');
+  if(!dir || dir == '.') {
+    dir = path.resolve('.');
+  }
+  //var dir = path.join(path.dirname(__filename), dir) || path.join(path.dirname(__filename), '.');
   console.log(p+'\033[36mYour preview server for '+dir+' is ready, Sir.\033[36m on port \033[96m%d\033[0m', perkins.port);
   http.createServer(function(req, res) {
     var ip = req.connection.remoteAddress;
