@@ -1,8 +1,8 @@
 {
   "name": "perkins",
   "author": "Carlos Elias <hola@carloselias.cl>",
-  "version": "2.0.1",
-  "description": "A HTML5/CSS3 Framework created by designers and developers to make their life a bit easier.",
+  "version": "2.0.2",
+  "description": "Design & Develop the web Faster HTML5/CSS3 Framework.",
   "keywords": ["web", "server", "cli", "framework", "web development", "CSS3", "HTML5", "LESS", "wireframes"],
   "repository": {
     "type": "git",

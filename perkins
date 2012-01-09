@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-var path    = require('path'),
-    http    = require('http'),
-    fs      = require('fs'),
-    perkins = require('commander'),
-    server  = require('paperboy'),
-    exec    = require('child_process').exec,
-    rootDir = path.dirname(process.argv[1]),
-    p       = '\033[32mPerkins: \033[0m';
+var path     = require('path'),
+    http     = require('http'),
+    fs       = require('fs'),
+    perkins  = require('commander'),
+    server   = require('paperboy'),
+    exec     = require('child_process').exec,
+    rootDir  = path.dirname(process.argv[1]),
+    p        = '\033[32mPerkins: \033[0m';
 
 perkins
-  .version('Perkins 2.0.1')
+  .version('Perkins 2.0.2')
   .usage('[command] --options <dir>')
   .option('-p, --port <port>', 'specify the port [8000]', Number, 8000)
 
@@ -43,7 +43,8 @@ perkins
       // /usr/local/lib/node_modules/perkins/src/
       cp = exec('cp -Rv '+ copypath +'/src/* '+ dir, function(error, stdout, stderr) {
         console.log(p+'Default Perkins structure in '+dir+' created for you, Sir.');
-        console.log(p+stdout+'\n');
+        fileName = path.basename(stdout);
+        console.log(p+'Copying... '+fileName+' into '+copypath+'\n');
         perkins.confirm(p+'Now... did you want me to execute the Perkins Preview HTTP Server? ', function(ok){
           if(ok){
             initServer(dir);
@@ -98,5 +99,4 @@ function initServer(dir) {
       });
   }).listen(perkins.port);
 }
-
 perkins.parse(process.argv);

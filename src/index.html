@@ -9,9 +9,16 @@
   <link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,700|Cabin+Condensed:700' rel='stylesheet' type='text/css'>
   <link href="stylesheets/app.less" media="all" rel="stylesheet/less" />
   <script src="javascripts/less-1.1.3.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script charset="utf-8">
     less.env = "development";
-    less.watch();
+    //less.watch();
+    $(document).ready(function(){
+      $("#send-button").click(function(){
+        console.log($("#text-input").val());
+        $("#text-input").val("");
+      });
+    });
   </script>
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -22,8 +29,11 @@
   <![endif]-->
 </head>
 <body>
-  <p><small>Perkins v2.0.1</small></p>
+  <p><small>Perkins v2.0.2</small></p>
   <p class="success"><strong>Perkins:</strong> here I'm Sir running just fine<p>
+  <div id="messages"></div>
+  <input type="text" id="text-input">
+  <input type="button" value="Send" id="send-button">
 </body>
 </html>
 

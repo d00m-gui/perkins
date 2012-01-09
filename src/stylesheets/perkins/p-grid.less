@@ -128,18 +128,6 @@
 .grid-36 {
   .grid(36);
 }
-/*
-.column {
-  
-}
-.row {
-  
-  .row {
-    margin: 0 - @margin;
-    width: auto;
-    
-}
-*/
 
 .column {
   display: inline;
@@ -165,29 +153,12 @@
 @column-width: 1 * (@width / @columns) - (2 * @margin);
 @gutter-width: @margin;
 
-//(50*16) + (10*16) = 960
-
-// 1 * (960 / 16) - (2 * 10) = 40
-
 @_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
 
 // Set @total-width to 100% for a fluid layout
 @total-width: @_gridsystem-width;
 
-/*
-body {
-  width: 100%;
-  float: left;
-}
-
-.row(@columns:@columns) {
-  display: inline-block;
-  overflow: hidden;
-  width: @total-width*((@gutter-width + @_gridsystem-width)/@_gridsystem-width);
-  margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);
-}
-*/
-.column-grid(@x,@columns:@columns) {
+.col(@x,@columns:@columns) {
   display: inline;
   float: left;
   overflow: hidden;
