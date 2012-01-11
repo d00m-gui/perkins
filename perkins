@@ -18,7 +18,12 @@ perkins
   .command('preview [path]')
   .description('This option create a Perkins Preview HTTP Server')
   .action(function(dir){
-    initServer(dir);
+    if (path.existsSync(dir)) {
+      initServer(dir);
+    }
+    else {
+      console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92mdoes not exists\033[0m');
+    }
   });
   
 perkins
