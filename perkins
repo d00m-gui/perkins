@@ -10,7 +10,7 @@ var path     = require('path'),
     p        = '\033[32mPerkins: \033[0m';
 
 perkins
-  .version('Perkins 2.0.2')
+  .version('Perkins 2.0.2 by Rodrigo Fuentealba, Carlos Elías. Released under the MIT License')
   .usage('[command] --options <dir>')
   .option('-p, --port <port>', 'specify the port [8000]', Number, 8000)
 
@@ -34,7 +34,7 @@ perkins
       console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92malready exists\033[0m');
     } else {
       fs.mkdirSync(dir, 0775); 
-      if (path.existsSync(rootDir +'/src')) {ç
+      if (path.existsSync(rootDir +'/src')) {
         copypath = rootDir;
       } else {
         //sudo npm install -g perkins
@@ -43,8 +43,9 @@ perkins
       // /usr/local/lib/node_modules/perkins/src/
       cp = exec('cp -Rv '+ copypath +'/src/* '+ dir, function(error, stdout, stderr) {
         console.log(p+'Default Perkins structure in '+dir+' created for you, Sir.');
-        fileName = path.basename(stdout);
-        console.log(p+'Copying... '+fileName+' into '+copypath+'\n');
+        done = fs.readdir(dir, function(error, stdout){
+          console.log(stdout+'\n');
+        });
         perkins.confirm(p+'Now... did you want me to execute the Perkins Preview HTTP Server? ', function(ok){
           if(ok){
             initServer(dir);
@@ -61,7 +62,23 @@ perkins
     }
   });
     
+perkins
+  .command('debug [path]')
+  .description('Don\'t take me seriously... just for internal tests')
+  .action(function(dir) {
+    done = fs.readdir(dir, function(res, error, stdout){
+      console.log(stdout);
+    });
+  });
 
+perkins
+  .command('watch <path>')
+  .description('watch feature test')
+  .action(function(dir) {
+    perkinsWatch(dir);
+  });
+  
+  
 function log(statCode, url, ip, err) {
   var logStr = p+'\033[90mconnection type '+ statCode + ' viewing the url ' + url + ' from the ip address ' + ip +'\033[0m';
   if (err)
@@ -98,5 +115,9 @@ function initServer(dir) {
         log(404, req.url, ip, err);
       });
   }).listen(perkins.port);
+}
+
+function perkinsWatch(dir) {
+  console.log(p+'Watching '+dir+' to stop press Ctrl+C');
 }
 perkins.parse(process.argv);
