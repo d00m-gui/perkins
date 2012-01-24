@@ -10,7 +10,7 @@ var path     = require('path'),
     p        = '\033[32mPerkins: \033[0m';
 
 perkins
-  .version('Perkins 2.0.2 by Rodrigo Fuentealba, Carlos Elías. Released under the MIT License')
+  .version('Perkins 2.0.2')
   .usage('[command] --options <dir>')
   .option('-p, --port <port>', 'specify the port [8000]', Number, 8000)
 
