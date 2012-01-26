@@ -3,11 +3,12 @@
 var path     = require('path'),
     http     = require('http'),
     fs       = require('fs'),
-    perkins  = require('commander'),
-    server   = require('paperboy'),
+    perkins  = require('/usr/lib/node_modules/perkins/node_modules/commander'),
+    server   = require('/usr/lib/node_modules/perkins/node_modules/paperboy'),
     exec     = require('child_process').exec,
     rootDir  = path.dirname(process.argv[1]),
     p        = '\033[32mPerkins: \033[0m';
+    less     = require('/usr/lib/node_modules/less');
 
 perkins
   .version('Perkins 2.0.2.devel')
@@ -75,7 +76,12 @@ perkins
   .command('watch <path>')
   .description('watch feature test')
   .action(function(dir) {
-    perkinsWatch(dir);
+    if (path.existsSync(dir)) {
+      perkinsWatch(dir);
+    }
+    else {
+      console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92mdoes not exists\033[0m');
+    }
   });
   
   
@@ -118,6 +124,37 @@ function initServer(dir) {
 }
 
 function perkinsWatch(dir) {
-  console.log(p+'Watching '+dir+' to stop press Ctrl+C');
+  if (path.existsSync(dir)) {
+    console.log(p+'Watching '+dir+' to stop press Ctrl+C');    
+    filename = './' + dir + '/stylesheets/app.less';
+    fs.watchFile(
+      filename, 
+      function() {
+        console.log(p+'Reading the file: '+filename);
+        fs.readFile(filename, 'utf-8', function(err, data){
+          
+          console.log(p+'Exporting to CSS');
+          
+          parser = new(less.Parser)({
+            paths : [ './'+dir , './'+dir+'/stylesheets'],
+            filename: './'+dir+'/'+ filename
+          });
+          
+          parser.parse(data, function(err, tree){
+            if (err) { return console.error(err) }
+            css = tree.toCSS({compress: true});
+            fs.writeFile('./'+dir+'/stylesheets/styles.css', css, 'utf8', function (err) {
+              if (err) throw err;
+              console.log(p+'It\'s saved!');
+            });
+          });
+          
+        }); 
+      }
+    );
+  }
+  else {
+    console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92mdoes not exists\033[0m');
+  }
 }
 perkins.parse(process.argv);
