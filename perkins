@@ -3,12 +3,12 @@
 var path     = require('path'),
     http     = require('http'),
     fs       = require('fs'),
-    perkins  = require('/usr/lib/node_modules/perkins/node_modules/commander'),
-    server   = require('/usr/lib/node_modules/perkins/node_modules/paperboy'),
+    perkins  = require('commander'),
+    server   = require('paperboy'),
     exec     = require('child_process').exec,
     rootDir  = path.dirname(process.argv[1]),
     p        = '\033[32mPerkins: \033[0m';
-    less     = require('/usr/lib/node_modules/less');
+    less     = require('less');
 
 perkins
   .version('Perkins 2.0.2.devel')

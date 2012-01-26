@@ -14,6 +14,7 @@
   },
   "dependencies" : { 
     "commander" : "~0.5.1",
-    "paperboy" : "~0.0.3"
+    "paperboy" : "~0.0.3",
+    "less" : "~1.2.1"
   }
 }
