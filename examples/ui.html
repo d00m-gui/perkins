@@ -1,3 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>perkins ui</title>
+  <link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,700|Cabin+Condensed:700' rel='stylesheet' type='text/css'>
+  <link href="stylesheets/demo.temp.css" media="all" rel="stylesheet" />
+  <link href="stylesheets/demo.less" media="all" rel="stylesheet/less" />
+  <script src="javascripts/less-1.2.1.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+  <script charset="utf-8">
+    //less.env = "development";
+    //less.watch();
+    $(function() {
+      $.datepicker.setDefaults( $.datepicker.regional[ "es" ] );
+      // Accordion
+      $("#accordion").accordion({ header: "h3" });
+      // Tabs
+      $('.tabs').tabs();
+      // Dialog      
+      $('#dialog').dialog({
+        autoOpen: false,
+        width: 600
+      });
+      // Dialog Link
+      $('#dialog_link').click(function(){
+        $('#dialog').dialog('open');
+        return false;
+      });
+      // Dialog From Settings
+      $('#dialogForm').dialog({
+        autoOpen: false,
+        width: 500,
+        modal: true,
+        resizable: false,
+        buttons: {
+          "Cancelar": function() {
+            $(this).dialog("close");
+          }, 
+          "Guardar": function() {
+            $(this).dialog("close"); 
+          } 
+        }
+      });
+      //Dialog Form Link
+      $('#dialog_form').click(function(){
+        $('#dialogForm').dialog('open');
+        return false;
+      });
+      // Datepicker
+      $('#datepicker').datepicker({
+        inline: true
+      });
+      // Slider
+      $('#slider').slider({
+        range: true,
+        values: [17, 67]
+      });
+      // Progressbar
+      $("#progressbar").progressbar({
+        value: 20 
+      });
+    });
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if lt IE 7 ]>
+    <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+  <![endif]-->
+</head>
+<body>
 <div class="row">
   <div class="column grid-10">
     <h2 class="demoHeaders">Perkins UI Styles</h2>
@@ -290,3 +367,5 @@
 
   </div>
 </div>
+</body>
+</html>

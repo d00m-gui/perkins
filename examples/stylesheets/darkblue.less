@@ -1,0 +1,373 @@
+// UIKit Dark Blue
+.form {
+  input, select {
+    border: none;
+    .radius(30px);
+    color: @skin-light;
+    .bs(0 0 0 3px rgba(200,200,200,0.40));
+    font-size: 12px;
+    font-family: @headings;
+    font-weight: normal;
+    padding: 3px 10px;
+    &:focus {
+      color: @skin-darken;
+      .bs(0 0 0 3px @skin-light);
+    }
+  }
+  input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+    margin-top: 3px;
+  }
+  label {
+    font-size: 12px;
+    font-family: @headings;
+    font-weight: normal;
+  }
+  textarea {
+    .radius();
+    border: none;
+    .bs(0 0 0 3px rgba(200,200,200,0.80));
+    color: @skin-light;
+    font-size: 12px;
+    font-family: @headings;
+    font-weight: normal;
+    padding: 10px;
+    letter-spacing: normal;
+    &:focus {
+      color: @skin-darken;
+      .bs(0 0 0 3px @skin-light);
+    }
+  }
+}
+.p-ui-checkbox {
+  .switchbox(#1563CA, #229FE0, #666, @skin-darken, "I", "O");
+  float: left;
+}
+.btn, input.sbtn[type="submit"] {
+  .radius(3px);
+  font-weight: normal;
+  #gradient > .v(#229FE0, #1563CA);
+  .ts(none);
+  color: @white;
+  font-family: @headings;
+  letter-spacing: 0.02em;
+  &:hover {
+    color: @white;
+    #gradient > .v(#1367D6, #23A6ED);
+  }
+}
+.btn-selected {
+  #gradient > .v(#1367D6, #23A6ED);
+  .bs(0 1px 0 rgba(255,255,255,0.40), 0 2px 1px rgba(32,32,32,0.20) inset);
+  color: #303030;
+}
+.bdelete {
+  #gradient > .v(lighten(@red, 10%), @red);
+  &:hover {
+    #gradient > .v(@red, lighten(@red, 10%));
+  }
+}
+.bcancel, .bback {
+  background: @system;
+  color: darken(@system, 40%) !important;
+  &:hover {
+    #gradient > .v(darken(@system, 10%), @system);
+  }
+}
+.bactive, .blessimportant {
+  #gradient > .v(#666, @skin-darken);
+  color: @white !important;
+  &:hover {
+   #gradient > .v(@skin-darken, #666);
+  }
+}
+.bdisable {
+  background: @system;
+  color: darken(@system, 20%) !important;
+  cursor: not-allowed !important;
+  border: 1px solid rgba(0,0,0,0.10);
+  .bs(0 0 0 transparent);
+  &:hover {
+    background: @system;
+    color: darken(@system, 20%) !important;
+    .bs(0 0 0 transparent);
+  }
+}
+// Perkins UI Mixins
+.p-ui-btn-action {
+  font-family: @headings;
+  letter-spacing: -0.04em;
+}
+
+.p-ui-dropdown {
+  border: none;
+  .radius();
+  #gradient > .v(@skin-darken, darken(@skin-darken, 5%));
+  li {
+    .radius(3px);
+    &:hover {
+      background: @skin-light;
+      color: @skin-dark;
+      a {
+        color: @skin-dark;
+      }
+    }
+    a {
+      padding: 15px 10px;
+      font-family: @headings;
+      color: @skin-light;
+    }
+  }
+  li[data-darr], li[data-rarr] {
+    a {
+      padding: 15px 30px 15px 15px;
+    }
+  }
+  li[data-darr] {
+    &:before {
+      .triangle-down(5px, @skin-light);
+      top: 18px;
+    }
+    &:hover {
+      &:before {
+        .triangle-down(5px, @skin-darken);
+      }
+    }
+  }
+  li[data-rarr] {
+    &:before {
+      .triangle-right(5px, @skin-darken);
+      top: 12px;
+      right: 10px;
+    }
+  }
+  ul {
+    .radius();
+    #gradient > .v(@skin-light, darken(@skin-light, 5%));
+    top: 38px;
+    .bs(0 6px 6px -6px @skin-dark);
+    border: none;
+    li {
+      margin: 5px;
+      &:hover {
+        background: @white;
+      }
+      a {
+        color: @skin-darken;
+        padding: 10px 25px 10px 15px !important;
+      }
+    }
+  }
+  ul li {
+    margin: 5px !important;
+  }
+  ul ul {
+    left: 175px;
+    top: 0;
+  }
+}
+.p-ui-tags {
+  li {
+    &:before {
+      top: 4px;
+    }
+  }
+  span {
+    padding: 0.5em 1.7em 0.5em 1em !important;
+  }
+  span, a {
+    font-weight: normal !important;
+    font-family: @headings;
+    text-transform: uppercase;
+  }
+}
+.p-ui-tooltip {
+  border-bottom: 1px dotted skin-light;
+  &:after {
+    color: @white;
+    background: @skin-darken;
+  }
+}
+
+// jQuery UI
+.ui-tabs {
+  text-align: center;
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  ul {
+    overflow: hidden;
+    display: inline-block !important;
+    margin-bottom: -5px;
+    &:before {
+      position: absolute;
+      content: " ";
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      border-bottom: 1px solid #AAA;
+      z-index: 1;
+    }
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    border: 1px solid #404146 !important;
+    #gradient > .v(#6C6D72, #4D4E53, url(/images/tnoise.png));
+    position: relative;
+    z-index: 0;
+    .radius(5px 5px 0 0);
+    .bs(0 3px 3px rgba(0, 0, 0, 0.40));
+    .ts(0 -1px 1px rgba(0,0,0,0.70));
+    padding: 10px 20px 7px !important;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: @headings;
+    color: @white;
+    .transition(none);
+    &:before, &:after {
+      border: 1px solid #404146;
+      position: absolute;
+      bottom: -1px;
+      width: 5px;
+      height: 5px;
+      content: " ";
+    }
+    &:before {
+      left: -6px;
+      border-bottom-right-radius: 6px;
+      border-width: 0 1px 1px 0;
+      box-shadow: 2px 2px 0 #4D4E53;
+    }
+    &:after {
+      right: -6px;
+      border-bottom-left-radius: 6px;
+      border-width: 0 0 1px 1px;
+      box-shadow: -2px 2px 0 #4D4E53;
+    }
+  }
+  .ui-tabs-selected a {
+    #gradient > .v(#eee, #ddd);
+    .ts(0 1px 0 rgba(255,255,255,0.40));
+    color: @skin-darken;
+    z-index: 2;
+    border: 1px solid #aaa !important;
+    border-bottom: 1px solid #ddd !important;
+    &:before {
+      box-shadow: 2px 2px 0 #ddd;
+      border-right: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+    }
+    &:after {
+      box-shadow: -2px 2px 0 #ddd;
+      border-left: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+    }
+  }
+  .ui-tabs-panel {
+    text-align: left;
+    #gradient > .v(#ddd, #eee);
+    border: 1px solid #aaa;
+    .radius();
+  }
+}
+.ui-accordion {
+  .ui-accordion-header {
+    #gradient > .v(#6C6D72, #4D4E52, url(/images/tnoise.png));
+    .radius();
+    .ts(0 1px 2px rgba(0,0,0,0.80));
+    font-weight: normal;
+    a {
+      font-size: 14px;
+      color: @white;
+      padding: 0.8em 0.8em 0.8em 2.2em;
+    }
+  }
+  .ui-state-active {
+    .radius(5px 5px 0 0);
+  }
+  .ui-accordion-content {
+    background: #f4f4f4 url(/images/tcloth.png);
+    .radius(0 0 5px 5px);
+  }
+}
+.ui-dialog {
+  .radius();
+  .ui-dialog-titlebar {
+    .radius(5px 5px 0 0);
+    #gradient > .v(#6C6D72, #4D4E52, url(/images/tnoise.png));
+    .ts(0 1px 2px rgba(0,0,0,0.80));
+    font-size: 14px;
+    color: @white;
+  }
+  .ui-dialog-buttonpane {
+    #gradient > .v(#6C6D72, #4D4E52, url(/images/tnoise.png));
+    button {
+      padding: 5px 10px 5px !important;
+    }
+  }
+}
+.ui-dialog-form {
+  padding: 0 10px 0 0 !important;
+  overflow: hidden;
+  .form {
+    li:nth-child(odd) {
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+    }
+    input[type="text"], select, textarea {
+      .grid-12;
+    }
+  }
+  .ui-dialog-buttonpane {
+    button {
+      padding: 5px 10px 5px !important;
+    }
+  }
+}
+.ui-slider {
+  .bs(inset 0 0 1px rgba(0,0,0,0.40));
+  .ui-slider-range {
+    #gradient > .v(#6C6D72, #4D4E52, url(/images/tnoise.png));
+  }
+  .ui-slider-handle {
+    #gradient > .v(#eee, #ddd);
+  }
+}
+.ui-progressbar {
+  height: 0.5em;
+  .ui-progressbar-value {
+    #gradient > .v(#6C6D72, #4D4E52, url(/images/tnoise.png));
+  }
+}
+.ui-datepicker {
+  #gradient > .v(#6C6D72, #4D4E52, url(/images/tnoise.png));
+  .ui-datepicker-header {
+    border: none;
+    .ui-datepicker-title {
+      color: @white;
+      font-weight: normal;
+      font-family: @headings;
+    }
+  }
+  .ui-datepicker-calendar {
+    th {
+      text-transform: uppercase;
+      .ts(0 0 2px rgba(255,255,255,0.40));
+      cursor: default;
+    }
+    a {
+      color: @white;
+    }
+    .ui-state-highlight {
+      color: @skin-darken;
+    }
+    .ui-state-active {
+      color: @white;
+      background: @skin-darken;
+    }
+  }
+}
