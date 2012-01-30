@@ -1,0 +1,61 @@
+/**
+ *  Perkins LESS Framework Version 2.0
+ *  ==================================
+ *
+ *  Feedback generators
+ *
+ *  Designed by                   Carlos Elías
+ *                                Rodrigo Fuentealba
+ *
+ */
+
+/**
+ *  Feedback mixin
+ */
+
+  .p-feedback(@background, @color, @border) {
+    background:                   @background;
+    border:                       @border;
+    color:                        @color;
+    margin-bottom:                @p-baseline + 0em;
+    padding:                      @p-baseline - 0.8em;
+    .p-border-radius();
+    a {
+      background:                 @color;
+      color:                      @p-white;
+      padding:                    2px @p-baseline - 0.8em;
+      display:                    inline-block;
+      .p-border-radius();
+      &:hover {
+        background:               lighten(@color, 10%);
+      }
+    }
+  }
+
+/**
+ *  Feedback definitions
+ */
+
+  .success {
+    .p-feedback(lighten(@p-green, 20%), darken(@p-green, 20%), 1px solid darken(@p-green, 20%));
+  }
+  
+  .notice {
+    .p-feedback(lighten(@p-cyan, 20%), darken(@p-cyan, 20%), 1px solid darken(@p-cyan, 20%));
+  }
+  
+  .information {
+    .p-feedback(lighten(@p-yellow, 20%), darken(@p-yellow, 20%), 1px solid darken(@p-yellow, 20%));
+  }
+  
+  .warning {
+    .p-feedback(lighten(@p-orange, 20%), darken(@p-orange, 20%), 1px solid darken(@p-orange, 20%));
+  }
+  
+  .error {
+    .p-feedback(lighten(@p-red, 20%), darken(@p-red, 20%), 1px solid darken(@p-red, 20%));
+  }
+  
+  .critical {
+    .p-feedback(lighten(@p-black, 20%), darken(@p-orange, 10%), 1px solid lighten(@p-orange, 20%));
+  }

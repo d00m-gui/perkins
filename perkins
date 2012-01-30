@@ -7,11 +7,11 @@ var path     = require('path'),
     server   = require('paperboy'),
     exec     = require('child_process').exec,
     rootDir  = path.dirname(process.argv[1]),
+    less     = require('less'),
     p        = '\033[32mPerkins: \033[0m';
-    less     = require('less');
 
 perkins
-  .version('Perkins 2.0.2.devel')
+  .version('Perkins 2.0.2')
   .usage('[command] --options <dir>')
   .option('-p, --port <port>', 'specify the port [8000]', Number, 8000)
 
@@ -125,36 +125,55 @@ function initServer(dir) {
 
 function perkinsWatch(dir) {
   if (path.existsSync(dir)) {
-    console.log(p+'Watching '+dir+' to stop press Ctrl+C');    
+    console.log(p+'Watching '+dir+' to stop press Ctrl+C');
     filename = './' + dir + '/stylesheets/app.less';
-    fs.watchFile(
-      filename, 
-      function() {
+    fs.watchFile(filename,
+      function(curr, prev) {
+        originalFile = prev.mtime.getTime();
+        currentFile = curr.ctime.getTime();
         console.log(p+'Reading the file: '+filename);
-        fs.readFile(filename, 'utf-8', function(err, data){
-          
-          console.log(p+'Exporting to CSS');
-          
-          parser = new(less.Parser)({
-            paths : [ './'+dir , './'+dir+'/stylesheets'],
-            filename: './'+dir+'/'+ filename
-          });
-          
-          parser.parse(data, function(err, tree){
-            if (err) { return console.error(err) }
-            css = tree.toCSS({compress: true});
-            fs.writeFile('./'+dir+'/stylesheets/styles.css', css, 'utf8', function (err) {
-              if (err) throw err;
-              console.log(p+'It\'s saved!');
+        if (originalFile != currentFile) {
+          fs.readFile(filename, 'utf-8', function(err, data){
+            console.log(p+'Exporting to CSS');
+            parser = new(less.Parser)({
+              paths : [ './'+dir , './'+dir+'/stylesheets'],
+              filename: './'+dir+'/'+ filename
+            });
+
+            parser.parse(data, function(err, tree){
+              if (err) { return console.error(err) }
+              css = tree.toCSS({compress: false});
+              fs.writeFile('./'+dir+'/stylesheets/styles.css', css, 'utf8', function (err) {
+                if (err) throw err;
+                console.log(p+'It\'s saved!');
+              });
             });
           });
-          
-        }); 
-      }
-    );
-  }
-  else {
+        } else {
+          console.log(p+'Watching '+dir+' to stop press Ctrl+C');
+        }
+      });
+  } else {
     console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92mdoes not exists\033[0m');
   }
 }
 perkins.parse(process.argv);
+
+/*
+if (originalFile != currentFile) {
+  console.log(p+'Exporting to CSS');
+  parser = new(less.Parser)({
+    paths : [ './'+dir , './'+dir+'/stylesheets'],
+    filename: './'+dir+'/'+ filename
+  });
+
+  parser.parse(data, function(err, tree){
+    if (err) { return console.error(err) }
+    css = tree.toCSS({compress: false});
+    fs.writeFile('./'+dir+'/stylesheets/styles.css', css, 'utf8', function (err) {
+      if (err) throw err;
+      console.log(p+'It\'s saved!');
+    });
+  });
+}
+*/

@@ -1,0 +1,63 @@
+/*
+ * Perkins Default Style UI
+ */
+
+.btn, input.sbtn[type="submit"] {
+  background: @p-green;
+  color: @p-white;
+  .p-text-shadow(none);
+  &:hover {
+    color: @p-white;
+    background: darken(@p-green, 25%);
+  }
+}
+.bdelete {
+  #p-gradient > .vertical(lighten(@p-red, 10%), @p-red);
+  &:hover {
+    #p-gradient > .vertical(@p-red, lighten(@p-red, 10%));
+  }
+}
+.bcancel, .bback {
+  background: @system;
+  color: darken(@system, 40%) !important;
+  &:hover {
+    #p-gradient > .vertical(darken(@system, 10%), @system);
+  }
+}
+.bactive {
+  background: @p-blue;
+  color: @p-white !important;
+  &:hover {
+    background: darken(@p-blue, 25%);
+  }
+}
+.bdisable {
+  background: @system;
+  color: darken(@system, 20%) !important;
+  cursor: not-allowed !important;
+  border: 1px solid rgba(0,0,0,0.10);
+  .p-box-shadow(0 0 0 transparent);
+  &:hover {
+    background: @system;
+    color: darken(@system, 20%) !important;
+    .p-box-shadow(0 0 0 transparent);
+  }
+}
+// Perkins UI Mixins
+.p-ui-btn-action {
+  .p-call-to-action();
+  padding: 0.8em 0.8em 0.6em;
+}
+.p-ui-dropdown {
+  .p-dropdown-menu();
+}
+.p-ui-tags {
+  .p-tag-list();
+}
+.p-ui-tooltip {
+  .p-tooltip();
+}
+.p-ui-checkbox {
+  .p-switchbox();
+  float: left;
+}

@@ -1,0 +1,84 @@
+// {>o<} Perkins
+@import "../stylesheets/perkins";
+
+// {>o<} Core Bowties
+@import "../stylesheets/perkins/grid";
+@import "../stylesheets/perkins/table";
+@import "../stylesheets/perkins/form";
+@import "../stylesheets/perkins/feedback";
+@import "../stylesheets/perkins/shapes";
+@import "../stylesheets/perkins/ui";
+
+//// {>o<} 3rd Party Bowties
+@import "../stylesheets/plugins/mnmlicons/mnmlicons";
+
+@p-palette-saturation:            0;
+@p-palette-lightness:             0;
+@p-palette-hue:                   0;
+
+@p-font-colors-link:              @p-orange;
+
+body {
+  margin: 0 auto;
+  width: 960px;
+}
+.f-h4 {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  color: lighten(@p-orange, 20%);
+  line-height: 0;
+  padding: 10px 10px 10px 0;
+  margin: 15px 10px 10px 0;
+  &:before {
+    font-family: @p-mono;
+    color: @p-orange;
+    font-size: 12px;
+    content: "{>o<}";
+    position: relative;
+    top: -3px;
+    margin-right: 5px;
+  }
+}
+.demogrid {
+  background: @p-orange;
+  border: 1px solid @p-white;
+  .p-border-radius(3px);
+  p {
+    margin: 0;
+    line-height: 0;
+    padding: 20px 10px;
+    display: block;
+    color: @p-white;
+    font-weight: bold;
+  }
+}
+.iconDemo {
+  position: relative;
+  .icon-list {
+    list-style: none;
+    width: 11%;
+    float: left;
+    margin: 0 1% 0 0;
+    li {
+      list-style: none;
+      font-size: 1.5em;
+      color: rgba(0,0,0,0.80);
+      cursor: pointer;
+      width: 100%;
+      margin: 0 0 10px;
+      &:before, span {
+        display: block;
+        text-align: center;
+      }
+      span {
+        font-size: 180%;
+      }
+      .i-name {
+        margin-top: 5px;
+        font-size: 11px !important;
+        font-weight: bold;
+        color: rgba(0,0,0,0.60);
+      }
+    }
+  }
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Perkins LESS Framework development team" />
+    <meta name="description" content="Perkins LESS Framework" />
+    <title>Perkins UIKits Sheet</title>
+    <link href="uitest.less" rel="stylesheet/less" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <script src="../../../javascripts/less-1.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script>
+      $(function() {
+
+        $.datepicker.setDefaults( $.datepicker.regional[ "es" ] );
+
+        // Accordion
+        $("#accordion").accordion({ header: "h3" });
+
+        // Tabs
+        $('.tabs').tabs();
+
+
+        // Dialog      
+        $('#dialog').dialog({
+          autoOpen: false,
+          width: 600
+        });
+
+        // Dialog Link
+        $('#dialog_link').click(function(){
+          $('#dialog').dialog('open');
+          return false;
+        });
+
+        // Dialog From Settings
+        $('#dialogForm').dialog({
+          autoOpen: false,
+          width: 500,
+          modal: true,
+          resizable: false,
+          buttons: {
+            "Cancelar": function() {
+              $(this).dialog("close");
+            }, 
+            "Guardar": function() {
+              $(this).dialog("close"); 
+            } 
+          }
+        });
+
+        //Dialog Form Link
+        $('#dialog_form').click(function(){
+          $('#dialogForm').dialog('open');
+          return false;
+        });
+
+        // Datepicker
+        $('#datepicker').datepicker({
+          inline: true
+        });
+
+        // Slider
+        $('#slider').slider({
+          range: true,
+          values: [17, 67]
+        });
+
+        // Progressbar
+        $("#progressbar").progressbar({
+          value: 20 
+        });
+
+      });
+    </script>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 7]>
+        <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+        <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>Perkins UIKits Sheet</h1>
+    <div class="row">
+      <div class="column grid-10">
+        <h2 class="f-h4">Form UI Styles</h2>
+        <ul class="form">
+           <li><label for="1">Input Text</label><input id="1" type="text"></li>
+           <li><label for="p">Input Password</label><input id="p" type="password"></li>
+           <li><label for="e">Input Email</label><input id="e" type="email"></li>
+           <li><label for="n">Input Number</label><input id="n" type="number"></li>
+           <li>
+             <label for="3">Select</label>
+             <select id="3">
+               <option>Lorem</option>
+               <option>Ipsum</option>
+               <option>Dolor</option>
+             </select>
+           </li>
+           <li><label for="4">Radio</label><input id="4" type="radio"></li>
+           <li><label for="5">Checkbox</label><input id="5" type="checkbox"></li>
+           <li>
+             <label for="interest_checkbox_32">Switchbox</label>
+             <div class="p-ui-checkbox">
+               <input type="checkbox" checked="checked" id="interest_checkbox_32">
+               <label for="interest_checkbox_32"><span>SwitchBox</span></label>
+             </div>
+            </li>
+           <li><label for="6">Textarea</label><textarea id="6" cols="40" rows="5"></textarea></li>
+         </ul>
+         <h2 class="f-h4">UI Buttons Styles</h2>
+         <ul class="h-menu demoBtns">
+          <li>
+            <a href="javascript:void(0);" class="btn">Default</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="btn bactive">Active</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="btn bcancel">Cancel</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="btn bback">Back</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="btn bdelete">Delete</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="btn bdisable">Disable</a>
+          </li>
+         </ul>
+         <br />
+         <a href="javascript:void(0);" class="p-ui-btn-action btn">Call To Action <span class="p-plane"></span></a>
+         <a href="javascript:void(0);" class="p-ui-btn-action bactive">Download <span class="p-download"></span></a>
+         <br />
+         <h2 class="f-h4">UI DropDown Menu Styles</h2>
+         <br />
+         <ul class="p-ui-dropdown">
+           <li><a href="javascript:void(0);">Item 1</a></li>
+           <li data-darr>
+             <a href="javascript:void(0);">Item 2</a>
+             <ul>
+              <li><a href="javascript:void(0);">Item 2.1</a></li>
+              <li><a href="javascript:void(0);">Item 2.2</a></li>
+              <li><a href="javascript:void(0);">Item 2.3</a></li>
+             </ul>
+           </li>
+           <li data-darr>
+             <a href="javascript:void(0);">Long Item 3</a>
+              <ul>
+               <li><a href="javascript:void(0);">Item 2.1</a></li>
+               <li data-rarr>
+                 <a href="javascript:void(0);">Item 2.2</a>
+                 <ul>
+                   <li><a href="javascript:void(0);">Item 2.2.1</a></li>
+                   <li><a href="javascript:void(0);">Item 2.2.2</a></li>
+                   <li><a href="javascript:void(0);">Item 2.2.3</a></li>
+                 </ul>
+               </li>
+               <li><a href="javascript:void(0);">Item 2.3</a></li>
+              </ul>
+           </li>
+           <li data-darr>
+             <a href="javascript:void(0);">Item 4</a>
+             <ul>
+               <li><a href="javascript:void(0);">Item 2.1</a></li>
+               <li><a href="javascript:void(0);">Ultra long Item 2.2 lorem ipsum dolor sit amet</a></li>
+               <li><a href="javascript:void(0);">Item 2.3</a></li>
+              </ul>
+           </li>
+         </ul>
+         <h2 class="f-h4">UI Tags Styles</h2>
+         <ul class="p-ui-tags">
+           <li><span><a href="javascript:void(0);">Typography</a></span></li>
+           <li><span>Grids</span></li>
+           <li><span>Pixels</span></li>
+           <li><span><a href="javascript:void(0);">Plugins</a></span></li>
+         </ul>
+         <br />
+         <h2 class="f-h4">UI Tooltips Styles</h2>
+         <p>I <span data-tooltip="I mean really, really." class="p-ui-tooltip">really</span> like pie. default tooltip</p>
+         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span data-tooltip="I mean really, really." class="p-ui-tooltip">Duis aute irure dolor in reprehenderit</span> in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         <br />
+         <h2 class="f-h4">Color Scheme</h2>
+        <ul class="colors">
+          <li class="p-red"></li>
+          <li class="p-orange"></li>
+          <li class="p-yellow"></li>
+          <li class="p-lime"></li>
+          <li class="p-green"></li>
+          <li class="p-turquoise"></li>
+          <li class="p-cyan"></li>
+          <li class="p-ocean"></li>
+          <li class="p-blue"></li>
+          <li class="p-violet"></li>
+          <li class="p-magenta"></li>
+          <li class="p-raspberry"></li>
+        </ul>
+      </div>
+      <div class="column grid-6">
+        <h2 class="f-h4">JQuery UI Styling</h2>
+        <!-- Tabs -->
+        <h2 class="f-h4">Tabs</h2>
+        <div class="tabs">
+          <ul>
+            <li><a href="#tabs-1">First</a></li>
+            <li><a href="#tabs-2">Second</a></li>
+            <li><a href="#tabs-3">Third</a></li>
+          </ul>
+          <div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+          <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+          <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+        </div>
+        <!-- Accordion -->
+        <h2 class="f-h4">Accordion</h2>
+        <div id="accordion">
+          <div>
+            <h3><a href="#">First</a></h3>
+            <div>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</div>
+          </div>
+          <div>
+            <h3><a href="#">Second</a></h3>
+            <div>Phasellus mattis tincidunt nibh.</div>
+          </div>
+          <div>
+            <h3><a href="#">Third</a></h3>
+            <div>Nam dui erat, auctor a, dignissim quis.</div>
+          </div>
+        </div>
+        <br />
+        <!-- ui-dialog -->
+        <h2 class="f-h4">Dialogs</h2>
+          <a href="#" id="dialog_link" class="btn">Open Dialog</a>
+          <div id="dialog" title="Dialog Title">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <a href="#" id="dialog_form" class="btn">Open From Dialog</a>
+          <div id="dialogForm" class="ui-dialog-form" title="Dialog Form Default">
+            <ul class="form">
+               <li><label for="7">Input Text</label><input id="7" type="text"></li>
+               <li>
+                 <label for="8">Select</label>
+                 <select id="8">
+                   <option>Lorem</option>
+                   <option>Ipsum</option>
+                   <option>Dolor</option>
+                 </select>
+               </li>
+               <li>
+                 <label for="interest_checkbox_11">Switchbox</label>
+                 <div class="p-ui-checkbox">
+                   <input type="checkbox" checked="checked" id="interest_checkbox_11">
+                   <label for="interest_checkbox_11"><span>SwitchBox</span></label>
+                 </div>
+                </li>
+               <li><label for="12">Textarea</label><textarea id="12" cols="40" rows="5"></textarea></li>
+             </ul>
+          </div>
+          <!-- Slider -->
+          <h2 class="f-h4">Slider</h2>
+          <div id="slider"></div>
+
+          <!-- Progressbar -->
+          <h2 class="f-h4">Progressbar</h2>  
+          <div id="progressbar"></div>
+
+          <!-- Datepicker -->
+          <h2 class="f-h4">Datepicker</h2>
+          <div id="datepicker" style="margin: 20px;"></div>
+
+      </div>
+    </div>
+  </body>
+</html>

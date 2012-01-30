@@ -1,0 +1,56 @@
+/**
+ *  Perkins LESS Framework Version 2.0
+ *  ==================================
+ *
+ *  Color palette generators
+ *
+ *  Designed by                   Rodrigo Fuentealba
+ *
+ */
+
+/**
+ *  Grayscale generation
+ */
+
+  @p-gray-lightest:        mix(@p-black, @p-white, 12.5%);
+  @p-gray-lighter:         mix(@p-black, @p-white, 25%);
+  @p-gray-light:           mix(@p-black, @p-white, 37.5%);
+  @p-gray:                 mix(@p-black, @p-white, 50%);
+  @p-gray-dark:            mix(@p-black, @p-white, 62.5%);
+  @p-gray-darker:          mix(@p-black, @p-white, 75%);
+  @p-gray-darkest:         mix(@p-black, @p-white, 87.5%);
+  
+/**
+ *  Palette generator calculations
+ */
+
+
+
+  @p-preprocessor-lightness:      lighten(#FF0000, @p-palette-lightness);
+  @p-preprocessor-saturate:       saturate(@p-preprocessor-lightness, @p-palette-saturation);
+  @p-color-palette-base:          spin(@p-preprocessor-lightness, @p-palette-hue);
+
+/**
+ *  Color palette generation
+ */
+
+  @p-red:                   spin(@p-color-palette-base, @p-palette-hue + 0);
+  @p-orange:                spin(@p-color-palette-base, @p-palette-hue + 30);
+  @p-yellow:                spin(@p-color-palette-base, @p-palette-hue + 60);
+  @p-lime:                  spin(@p-color-palette-base, @p-palette-hue + 90);
+  @p-green-l:               spin(@p-color-palette-base, @p-palette-hue + 120);
+  @p-green:                 lighten(@p-green-l, 15%);
+  @p-turquoise:             spin(@p-color-palette-base, @p-palette-hue + 150);
+  @p-cyan:                  spin(@p-color-palette-base, @p-palette-hue + 180);
+  @p-ocean:                 spin(@p-color-palette-base, @p-palette-hue + 210);
+  @p-blue:                  spin(@p-color-palette-base, @p-palette-hue + 240);
+  @p-violet:                spin(@p-color-palette-base, @p-palette-hue + 270);
+  @p-magenta:               spin(@p-color-palette-base, @p-palette-hue + 300);
+  @p-raspberry:             spin(@p-color-palette-base, @p-palette-hue + 330);
+
+
+/**
+ *  Color default for styling 
+ */
+
+  @system:                        @p-gray;
