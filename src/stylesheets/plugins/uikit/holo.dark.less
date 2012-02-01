@@ -1,0 +1,117 @@
+/*
+ * Perkins Android Holo.Dark-Like UI
+ */
+ @light: #f3f3f3;
+ @mid: #565759;
+ @dark: #303030;
+ @darken: #232323;
+ @focus: #33b5e5;
+ 
+.uikit-bg {
+  background: #020202;
+}
+ 
+.form {
+  label {
+    color: @mid;
+    font-weight: normal;
+    font-size: 1.4rem;
+    text-align: right;
+  }
+  input, textarea, select {
+    border: none;
+    border-bottom: 1px solid @mid;
+    color: @mid;
+    background: transparent;
+    font-size: 1.8rem;
+    &:focus {
+      color: @light;
+      border-bottom: 1px solid @focus;
+      .box-shadow(0 0 0 transparent);
+    }
+  }
+  textarea {
+    font-family: @p-sans;
+  }
+}
+.btn, input.sbtn[type="submit"] {
+  background: @p-green;
+  color: @p-white;
+  .text-shadow(none);
+  &:hover {
+    color: @p-white;
+    background: darken(@p-green, 25%);
+  }
+}
+.bdelete {
+  #gradient > .vertical(lighten(@p-red, 10%), @p-red);
+  &:hover {
+    #gradient > .vertical(@p-red, lighten(@p-red, 10%));
+  }
+}
+.bcancel, .bback {
+  background: @system;
+  color: darken(@system, 40%) !important;
+  &:hover {
+    #gradient > .vertical(darken(@system, 10%), @system);
+  }
+}
+.bactive {
+  background: @p-blue;
+  color: @p-white !important;
+  &:hover {
+    background: darken(@p-blue, 25%);
+  }
+}
+.bdisable {
+  background: @system;
+  color: darken(@system, 20%) !important;
+  cursor: not-allowed !important;
+  border: 1px solid rgba(0,0,0,0.10);
+  .box-shadow(0 0 0 transparent);
+  &:hover {
+    background: @system;
+    color: darken(@system, 20%) !important;
+    .box-shadow(0 0 0 transparent);
+  }
+}
+// Perkins UI Mixins
+.p-ui-btn-action {
+  .call-to-action();
+  padding: 0.8em 0.8em 0.6em;
+}
+.p-ui-dropdown {
+  .dropdown-menu();
+}
+.p-ui-tags {
+  .tag-list();
+}
+.p-ui-tooltip {
+  .tooltip();
+}
+.p-ui-checkbox {
+  .p-switchbox(@focus, @focus, transparent, transparent);
+  float: left;
+  .border-radius(0);
+  &:after, &:before {
+    border: none !important;
+    .border-radius(0);
+    background: transparent !important;
+  }
+  input[type="checkbox"] + label {
+    background: transparent !important;
+    border: none !important;
+    .border-radius(0);
+    span {
+      border: none !important;
+      background: @mid;
+      &:after, &:before {
+        .box-shadow(0 0 0 transparent) !important;
+        border: none !important;
+      }
+      &:after {
+        background: @darken;
+      }
+    }
+  }
+}

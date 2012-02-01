@@ -1,10 +1,10 @@
-  .p-box-sizing(@def: border-box) {
+  .box-sizing(@def: border-box) {
     -webkit-box-sizing:           @def;
     -moz-box-sizing:              @def;
     box-sizing:                   @def;
   }
   
-  .p-border-radius(@radius: 5px) {
+  .border-radius(@radius: 5px) {
     -webkit-border-radius:        @radius;
     -moz-border-radius:           @radius;
     -ms-border-radius:            @radius;
@@ -12,7 +12,7 @@
     border-radius:                @radius;
   }
 
-  .p-box-shadow(@bsval: 0 6px 6px -6px rgba(0,0,0,0.80), @due: 0 0 0 transparent) {
+  .box-shadow(@bsval: 0 6px 6px -6px rgba(0,0,0,0.80), @due: 0 0 0 transparent) {
     -webkit-box-shadow: @bsval, @due;
     -moz-box-shadow: @bsval, @due;
     -ms-box-shadow: @bsval, @due;
@@ -21,11 +21,11 @@
   }
   
   // Text Shadow
-  .p-text-shadow(@tsval: 0px 1px 0px rgba(255,255,255,0.80)) {
+  .text-shadow(@tsval: 0px 1px 0px rgba(255,255,255,0.80)) {
     text-shadow: @tsval;
   }
 
-  .p-transform(@scale: 1, @rotate: 0, @translateX: 0, @translateY: 0, @skewX: 0, @skewY: 0) {
+  .transform(@scale: 1, @rotate: 0, @translateX: 0, @translateY: 0, @skewX: 0, @skewY: 0) {
     -webkit-transform-origin: 0% 0%;
     -moz-transform-origin: 0% 0%;
     -ms-transform-origin: 0% 0%;
@@ -37,13 +37,13 @@
     transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
   }
 
-  .p-transition(@trans: all linear 0.2s) {
+  .transition(@trans: all linear 0.2s) {
     -webkit-transition: @trans;
     -moz-transition: @trans;
     transition: @trans;
   }
   
-  #p-gradient {
+  #gradient {
      .horizontal(@startColor: #555, @endColor: #333, @img: none) {
        /* Legacy browsers */
        background: @endColor @img;
@@ -84,7 +84,7 @@
    }
 
   // Buttons
-  .p-button(@color: #ccc, @text_color: #444, @text_shadow: 0 1px 0 rgba(255,255,255,0.40), @padding: 0.7em 1em, @rounded: 5px, @font_weight: 300) {
+  .button(@color: #ccc, @text_color: #444, @text_shadow: 0 1px 0 rgba(255,255,255,0.40), @padding: 0.7em 1em, @rounded: 5px, @font_weight: 300) {
     display: inline-block;
     padding: @padding;
     color: @text_color;
@@ -92,23 +92,23 @@
     border: 1px solid rgba(45, 45, 45, 0.50);
     margin: 3px 0;
     background: @color;
-    #p-gradient > .vertical(@color, darken(@color,10%));
-    .p-text-shadow(@text_shadow);
-    .p-border-radius(@rounded);
-    .p-box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
+    #gradient > .vertical(@color, darken(@color,10%));
+    .text-shadow(@text_shadow);
+    .border-radius(@rounded);
+    .box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
     font-weight: @font_weight;
     &:hover {
       background: darken(@color,10%);
-      #p-gradient > .vertical(darken(@color,10%), @color);
-      .p-box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 2px 1px rgba(32,32,32,0.20) inset);
+      #gradient > .vertical(darken(@color,10%), @color);
+      .box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 2px 1px rgba(32,32,32,0.20) inset);
       color: @text_color;
       text-decoration: none;
     }
   }
-  .p-call-to-action() {
+  .call-to-action() {
     display: inline-block;
-    .p-box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
-    .p-border-radius();
+    .box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
+    .border-radius();
     border: 1px solid rgba(45, 45, 45, 0.50);
     font-size: 2em;
     line-height: 1;
@@ -122,12 +122,12 @@
       font-size: 180%;
     }
     &:hover {
-      .p-box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 2px 1px rgba(32,32,32,0.20) inset);
+      .box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 2px 1px rgba(32,32,32,0.20) inset);
       text-decoration: none;
     }
   }
   // Navigation
-  .p-nav(@parentSide: left, @childSide: left, @padding: 5px 10px, @margin: 0 10px 0 0) {
+  .nav(@parentSide: left, @childSide: left, @padding: 5px 10px, @margin: 0 10px 0 0) {
     margin: 0;
     padding: 0;
     float: @parentSide;
@@ -145,7 +145,7 @@
     }
   }
   // Drop Down Menu
-  .p-dropdown-menu(@border: 1px solid @system) {
+  .dropdown-menu(@border: 1px solid @system) {
     margin: 0;
     padding: 5px;
     line-height: 100%;
@@ -168,7 +168,7 @@
       background: @p-white;
       visibility: hidden;
       opacity: 0;
-      .p-transition();
+      .transition();
       margin: 0;
       padding: 0;
       width: 185px;
@@ -182,7 +182,7 @@
       display: block;
       visibility: visible;
       opacity: 1;
-      .p-transition();
+      .transition();
       li {
         float: none;
         margin: 0;
@@ -227,7 +227,7 @@
     }
   }
   // Tag List
-  .p-tag-list(@bgColor: #EFE394) {
+  .tag-list(@bgColor: #EFE394) {
     list-style: none;
     margin: 0;
     padding: 5px 0;
@@ -238,8 +238,8 @@
       margin: 0 0.85em 0 0;
       &:before {
         content:"";
-        .p-border-radius(3px);
-        #p-gradient > .vertical(@bgColor, darken(@bgColor, 20%));
+        .border-radius(3px);
+        #gradient > .vertical(@bgColor, darken(@bgColor, 20%));
         border: 1px solid darken(@bgColor, 30%);
         width: 19px;
         height: 19px;
@@ -247,11 +247,11 @@
         z-index: 50;
         right: -4px;
         top: 14px;
-        .p-transform(1, -45deg);
+        .transform(1, -45deg);
       }
       &:after {
         content:"";
-        .p-border-radius(100%);
+        .border-radius(100%);
         width: 8px;
         height: 8px;
         background: @p-white;
@@ -259,11 +259,11 @@
         z-index: 150;
         right: 1px;
         top: 9px;
-        .p-box-shadow(0 1px 0 rgba(255,255,255,0.80), inset 0 1px 1px rgba(0,0,0,0.40));
+        .box-shadow(0 1px 0 rgba(255,255,255,0.80), inset 0 1px 1px rgba(0,0,0,0.40));
       }
       span {
         display: inline-block;
-        .p-border-radius(3px);
+        .border-radius(3px);
         position: relative;
         z-index: 100;
         padding: 0.5em 1.7em 0.4em 1em;
@@ -272,9 +272,9 @@
         color: darken(@bgColor, 40%);
         border: 1px solid darken(@bgColor, 30%);
         border-right: none;
-        #p-gradient > .vertical(@bgColor, darken(@bgColor, 20%));
-        .p-text-shadow(0 1px 0 rgba(255,255,255,0.40));
-        .p-box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
+        #gradient > .vertical(@bgColor, darken(@bgColor, 20%));
+        .text-shadow(0 1px 0 rgba(255,255,255,0.40));
+        .box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
         font-weight: bold;
       }
       a {
@@ -292,7 +292,7 @@
    *  CSS3 text columns mixin
    */
   
-   .p-content-columns(@count: 2) {
+   .content-columns(@count: 2) {
      -webkit-column-count:         @count;
      -moz-column-count:            @count;
      -o-column-count:              @count;
@@ -304,7 +304,7 @@
    }
   
   // Tooltip
-  .p-tooltip(@color: @p-white, @bgColor: rgba(0,0,0,0.80), @tipBorder: 1px dotted #333, @data: attr(data-tooltip)) {
+  .tooltip(@color: @p-white, @bgColor: rgba(0,0,0,0.80), @tipBorder: 1px dotted #333, @data: attr(data-tooltip)) {
     border-bottom: @tipBorder;
     position: relative;
     cursor: pointer;
@@ -317,14 +317,14 @@
       background: @bgColor;
       padding: 3px 7px;
       color: @color;
-      .p-border-radius(3px);
-      .p-transition();
+      .border-radius(3px);
+      .transition();
     }
     &:hover {
       &:after {
         visibility: visible;
         opacity: 1;
-        .p-transition();
+        .transition();
         z-index: 2500;
       }
     }
@@ -335,14 +335,14 @@
   */
   
   .btn, input[type="submit"], button {
-    .p-button();
+    .button();
   }
   .sbtn {
     font-size: 11px !important;
     font-weight: bold;
     text-transform: uppercase;
     padding: 6px 5px 5px;
-    .p-border-radius(3px);
+    .border-radius(3px);
   }
   h1 a.btn, h2 a.btn, h3 a.btn {
     padding: 25px 30px 20px !important;
@@ -353,11 +353,11 @@
   */
 
   .h-menu {
-    .p-nav();
+    .nav();
   }
   .v-menu {
-    .p-nav(none, none, 10px 5px 5px, 0 0 -1px 0);
+    .nav(none, none, 10px 5px 5px, 0 0 -1px 0);
   }
   .t-menu {
-    .p-nav(left, left, 10px 20px 4px, 0 -1px 0 0);
+    .nav(left, left, 10px 20px 4px, 0 -1px 0 0);
   }

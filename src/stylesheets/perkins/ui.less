@@ -303,31 +303,31 @@
 @ui-radius-size: 0;
 
 .ui-corner-top {
-  .p-border-radius(@ui-radius-size @ui-radius-size 0 0);
+  .border-radius(@ui-radius-size @ui-radius-size 0 0);
 }
 .ui-corner-bottom {
-  .p-border-radius(0 0 @ui-radius-size @ui-radius-size);
+  .border-radius(0 0 @ui-radius-size @ui-radius-size);
 }
 .ui-corner-right {
-  .p-border-radius(0 @ui-radius-size @ui-radius-size 0);
+  .border-radius(0 @ui-radius-size @ui-radius-size 0);
 }
 .ui-corner-left {
-  .p-border-radius(@ui-radius-size 0 0 @ui-radius-size);
+  .border-radius(@ui-radius-size 0 0 @ui-radius-size);
 }
 .ui-corner-tl {
-  .p-border-radius(@ui-radius-size 0 0 0);
+  .border-radius(@ui-radius-size 0 0 0);
 }
 .ui-corner-tr {
-  .p-border-radius(0 @ui-radius-size 0 0);
+  .border-radius(0 @ui-radius-size 0 0);
 }
 .ui-corner-bl {
-  .p-border-radius(0 0 0 @ui-radius-size);
+  .border-radius(0 0 0 @ui-radius-size);
 }
 .ui-corner-br {
-  .p-border-radius(0 0 @ui-radius-size 0);
+  .border-radius(0 0 @ui-radius-size 0);
 }
 .ui-corner-all {
-  .p-border-radius(@ui-radius-size);
+  .border-radius(@ui-radius-size);
 }
 
 /* Overlays */
@@ -530,7 +530,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
   width: 300px;
   overflow: hidden;
   background: @p-white;
-  .p-box-shadow(0 0 5px 2px rgba(0,0,0,0.40));
+  .box-shadow(0 0 5px 2px rgba(0,0,0,0.40));
   .ui-dialog-titlebar {
     padding: 0.4em 1em;
     position: relative;
@@ -603,16 +603,16 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
   position: relative;
   text-align: left;
   border: 1px solid @system;
-  .p-border-radius(20px);
-  .p-box-shadow(inset 0 2px 3px rgba(0,0,0,0.40));
+  .border-radius(20px);
+  .box-shadow(inset 0 2px 3px rgba(0,0,0,0.40));
   .ui-slider-handle {
     position: absolute;
     z-index: 2;
     padding: 7px;
     cursor: default;
-    .p-border-radius(100%);
-    .p-box-shadow(0 1px 2px 1px rgba(0,0,0,0.80);
-    #p-gradient > .vertical(#eee, #999);
+    .border-radius(100%);
+    .box-shadow(0 1px 2px 1px rgba(0,0,0,0.80);
+    #gradient > .vertical(#eee, #999);
   }
   .ui-slider-range {
     position: absolute;
@@ -621,7 +621,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
     border: 0;
     background-position: 0 0;
     background: @system;
-    .p-border-radius(20px);
+    .border-radius(20px);
   }
 }
 .ui-slider-horizontal {
@@ -717,7 +717,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-datepicker {
   width: 17em;
   display: none;
-  .p-box-shadow(0 0 5px 2px rgba(0,0,0,0.40));
+  .box-shadow(0 0 5px 2px rgba(0,0,0,0.40));
   .ui-datepicker-header {
     position: relative;
     padding: 0.2em 0 0.5em;
@@ -872,12 +872,12 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  */
 .ui-progressbar {
   height: 1em;
-  .p-border-radius(1em);
+  .border-radius(1em);
   text-align: left;
   border: 1px solid darken(@system, 15%);
   .ui-progressbar-value {
     height: 100%;
     background: @system;
-    .p-border-radius(1em);
+    .border-radius(1em);
   }
 }

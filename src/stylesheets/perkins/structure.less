@@ -40,7 +40,7 @@
     cursor: pointer;
     outline: none;
     color: darken(@p-font-colors-link, 20%);
-    .p-transition();
+    .transition();
   }
   a:active {
     cursor: pointer;
@@ -68,8 +68,8 @@
     font-weight: 300;
     background: #333;
     color: @p-green;
-    .p-border-radius();
-    .p-box-shadow(inset 0 1px 3em darken(@system, 80%));
+    .border-radius();
+    .box-shadow(inset 0 1px 3em darken(@system, 80%));
   }
   hr {
     background: @system;
@@ -312,8 +312,8 @@
     padding: 3px;
   }
   input:focus, select:focus, textarea:focus {
-    .p-transition();
-    .p-box-shadow(0 0 5px @p-blue, 0 2px 5px rgba(32,32,32,0.20) inset);
+    .transition();
+    .box-shadow(0 0 5px @p-blue, 0 2px 5px rgba(32,32,32,0.20) inset);
     border: 1px solid darken(@system, 40%);
   }
   input[type="checkbox"] {
