@@ -3,7 +3,7 @@
     -moz-box-sizing:              @def;
     box-sizing:                   @def;
   }
-  
+
   .border-radius(@radius: 5px) {
     -webkit-border-radius:        @radius;
     -moz-border-radius:           @radius;
@@ -19,8 +19,7 @@
     -o-box-shadow: @bsval, @due;
     box-shadow: @bsval, @due;
   }
-  
-  // Text Shadow
+
   .text-shadow(@tsval: 0px 1px 0px rgba(255,255,255,0.80)) {
     text-shadow: @tsval;
   }
@@ -144,6 +143,14 @@
       }
     }
   }
+  
+  // Mixin by malarkey ~ 320 and up
+  .font-size(@size: 16) {
+    @rem: (@size / 10);
+    font-size: @size * 1px;
+    font-size: ~"@{rem}rem";
+  }
+  
   // Drop Down Menu
   .dropdown-menu(@border: 1px solid @system) {
     margin: 0;

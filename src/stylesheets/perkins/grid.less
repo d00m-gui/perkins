@@ -1,6 +1,10 @@
 .grid(@rowwidth: 16) {
   width: @rowwidth * (@p-page-width / @p-grid-columns) - (2 * @p-grid-margin);
   .box-sizing();
+  display: inline;
+  float: left;
+  margin: 0 @p-grid-margin;
+  overflow: hidden;
 }
 .grid-1 {
   .grid(1);
@@ -111,12 +115,12 @@
   .grid(36);
 }
 
-.column {
+/*.column {
   display: inline;
   float: left;
   margin: 0 @p-grid-margin;
   overflow: hidden;
-}
+}*/
 .row {
   width: @p-page-width;
   margin: 0 auto;
@@ -127,23 +131,6 @@
   }
 }
 
-////////////////////
-// SEMANTIC GRID //
-//////////////////
-
-// Defaults which you can freely override
-@column-width: 1 * (@p-page-width / @p-grid-columns) - (2 * @p-grid-margin);
-@gutter-width: @p-grid-margin;
-
-@_gridsystem-width: (@column-width*@p-grid-columns) + (@gutter-width*@p-grid-columns) * 1px;
-
-// Set @total-width to 100% for a fluid layout
-@total-width: @_gridsystem-width;
-
-.p-column(@x,@p-grid-columns:@p-grid-columns) {
-  display: inline;
-  float: left;
-  overflow: hidden;
-  width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width);
-  margin: 0 @total-width*((@gutter-width*.5)/@_gridsystem-width);
+.column(@num) {
+  .grid(@num);
 }
