@@ -1,29 +1,33 @@
 #!/usr/bin/env node
 
+/**
+* Perkins v2.0.3 CLI by Carlos Elias
+*/
+
 var path     = require('path'),
-    http     = require('http'),
-    fs       = require('fs'),
     perkins  = require('commander'),
-    server   = require('paperboy'),
-    exec     = require('child_process').exec,
-    rootDir  = path.dirname(process.argv[1]),
-    less     = require('less'),
-    p        = '\033[32mPerkins: \033[0m';
+    core     = require('./lib/core.js'),
+    server   = require('./lib/preview.js'),
+    cli      = require('./lib/cli.js')(),
+    colors   = require('/usr/lib/node_modules/colors');
 
 perkins
-  .version('Perkins 2.0.2')
+  .version('Perkins 2.0.3'.bold)
   .usage('[command] --options <dir>')
   .option('-p, --port <port>', 'specify the port [8000]', Number, 8000)
+  .option('-m, --min', 'minifies Perkins into a css file.', false)
+  .option('-v, --verbose', 'output incoming requests.', false)
 
 perkins
   .command('preview [path]')
   .description('This option create a Perkins Preview HTTP Server')
   .action(function(dir){
     if (path.existsSync(dir)) {
-      initServer(dir);
-    }
-    else {
-      console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92mdoes not exists\033[0m');
+      server.preview(dir);
+      cli.msg('Your preview server for '+dir+' is ready, Sir. on http://localhost:'+perkins.port);
+      cli.info('You want to stop the preview? press Ctrl+C');
+    } else {
+      cli.error('Sorry, Sir but '+dir+' do not exists...');
     }
   });
   
@@ -31,45 +35,7 @@ perkins
   .command('setup <path>')
   .description('Just relax let me take care of building a version of ... well me.')
   .action(function(dir){
-    if (path.existsSync(dir)) {
-      console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92malready exists\033[0m');
-    } else {
-      fs.mkdirSync(dir, 0775); 
-      if (path.existsSync(rootDir +'/src')) {
-        copypath = rootDir;
-      } else {
-        //sudo npm install -g perkins
-        copypath = path.normalize(rootDir+'/../lib/node_modules/perkins');
-      }
-      // /usr/local/lib/node_modules/perkins/src/
-      cp = exec('cp -Rv '+ copypath +'/src/* '+ dir, function(error, stdout, stderr) {
-        console.log(p+'Default Perkins structure in '+dir+' created for you, Sir.');
-        done = fs.readdir(dir, function(error, stdout){
-          console.log(stdout+'\n');
-        });
-        perkins.confirm(p+'Now... did you want me to execute the Perkins Preview HTTP Server? ', function(ok){
-          if(ok){
-            initServer(dir);
-          }else{
-            console.log(p+'\033[36mAs you wish, Sir.\033[36m no server running\033[0m')
-            console.log(p+'If I may... Do not forget to edit perkins.config.less to met your needs');
-            process.stdin.destroy();
-          }
-        });
-        if (error !== null) {
-          console.log(p+'Oops something went wrong ' + error);
-        }
-      });
-    }
-  });
-    
-perkins
-  .command('debug [path]')
-  .description('Don\'t take me seriously... just for internal tests')
-  .action(function(dir) {
-    done = fs.readdir(dir, function(res, error, stdout){
-      console.log(stdout);
-    });
+    core.setup(dir);
   });
 
 perkins
@@ -77,103 +43,26 @@ perkins
   .description('watch feature test')
   .action(function(dir) {
     if (path.existsSync(dir)) {
-      perkinsWatch(dir);
+      cli.info('Start watching');
+      core.watch(dir);
     }
     else {
-      console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92mdoes not exists\033[0m');
+      cli.error('Sorry, Sir but '+ dir +' does not exists');
     }
   });
-  
-  
-function log(statCode, url, ip, err) {
-  var logStr = p+'\033[90mconnection type '+ statCode + ' viewing the url ' + url + ' from the ip address ' + ip +'\033[0m';
-  if (err)
-    logStr += ' - ' + err;
-  console.log(logStr);
-}
 
-function initServer(dir) {
-  if(!dir || dir == '.') {
-    dir = path.resolve('.');
-  }
-  //var dir = path.join(path.dirname(__filename), dir) || path.join(path.dirname(__filename), '.');
-  console.log(p+'\033[36mYour preview server for '+dir+' is ready, Sir.\033[36m on port \033[96m%d\033[0m', perkins.port);
-  http.createServer(function(req, res) {
-    var ip = req.connection.remoteAddress;
-    server
-      .deliver(dir, req, res)
-      .addHeader('Expires', 300)
-      .addHeader('X-PaperRoute', 'Node')
-      .before(function() {
-        console.log(p+'\033[36mSir, We received a request\033[0m');
-      })
-      .after(function(statCode) {
-        log(statCode, req.url, ip);
-      })
-      .error(function(statCode, msg) {
-        res.writeHead(statCode, {'Content-Type': 'text/plain'});
-        res.end("Error " + statCode);
-        log(statCode, req.url, ip, msg);
-      })
-      .otherwise(function(err) {
-        res.writeHead(404, {'Content-Type': 'text/plain'});
-        res.end("Error 404: File not found");
-        log(404, req.url, ip, err);
-      });
-  }).listen(perkins.port);
-}
+perkins
+  .command('debug [path]')
+  .description('Don\'t take me seriously... just for internal tests')
+  .action(function(dir) {
+    
+  });
 
-function perkinsWatch(dir) {
-  if (path.existsSync(dir)) {
-    console.log(p+'Watching '+dir+' to stop press Ctrl+C');
-    filename = './' + dir + '/stylesheets/app.less';
-    fs.watchFile(filename,
-      function(curr, prev) {
-        originalFile = prev.mtime.getTime();
-        currentFile = curr.ctime.getTime();
-        console.log(p+'Reading the file: '+filename);
-        if (originalFile != currentFile) {
-          fs.readFile(filename, 'utf-8', function(err, data){
-            console.log(p+'Exporting to CSS');
-            parser = new(less.Parser)({
-              paths : [ './'+dir , './'+dir+'/stylesheets'],
-              filename: './'+dir+'/'+ filename
-            });
+perkins
+  .command('pre [path]')
+  .description('Don\'t take me seriously... just for internal tests')
+  .action(function(dir) {
 
-            parser.parse(data, function(err, tree){
-              if (err) { return console.error(err) }
-              css = tree.toCSS({compress: false});
-              fs.writeFile('./'+dir+'/stylesheets/styles.css', css, 'utf8', function (err) {
-                if (err) throw err;
-                console.log(p+'It\'s saved!');
-              });
-            });
-          });
-        } else {
-          console.log(p+'Watching '+dir+' to stop press Ctrl+C');
-        }
-      });
-  } else {
-    console.log(p+'\033[92mI\'m sorry, Sir but \033[36m'+ dir + ' \033[92mdoes not exists\033[0m');
-  }
-}
+  });
+
 perkins.parse(process.argv);
-
-/*
-if (originalFile != currentFile) {
-  console.log(p+'Exporting to CSS');
-  parser = new(less.Parser)({
-    paths : [ './'+dir , './'+dir+'/stylesheets'],
-    filename: './'+dir+'/'+ filename
-  });
-
-  parser.parse(data, function(err, tree){
-    if (err) { return console.error(err) }
-    css = tree.toCSS({compress: false});
-    fs.writeFile('./'+dir+'/stylesheets/styles.css', css, 'utf8', function (err) {
-      if (err) throw err;
-      console.log(p+'It\'s saved!');
-    });
-  });
-}
-*/

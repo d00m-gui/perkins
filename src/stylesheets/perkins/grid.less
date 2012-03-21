@@ -1,9 +1,10 @@
 .grid(@rowwidth: 16) {
-  width: @rowwidth * (@p-page-width / @p-grid-columns) - (2 * @p-grid-margin);
+  //width: @rowwidth * (@p-page-width / @p-grid-columns) - (2 * @p-grid-margin);
+  width: @rowwidth * (@p-page-width / @p-grid-columns);
   .box-sizing();
   display: inline;
   float: left;
-  margin: 0 @p-grid-margin;
+  //margin: 0 @p-grid-margin;
   overflow: hidden;
 }
 .grid-1 {

@@ -3,251 +3,111 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>perkins</title>
-
-  <!--
-    Why do not you try changing the old mythical web-safe fonts for a
-    more innovative set? I show you an example on how to do it!
-  -->
-  <link href='http://fonts.googleapis.com/css?family=Signika+Negative:300,700|Cabin+Condensed:700' rel='stylesheet' type='text/css'>
-
-  <!-- 
-    The {app.less} file is magic. It loads the perkins configurations,
-    establishes your preferences and calls me. You will write all your
-    code (or most of it) here, all the time.
-  -->
+  <meta name="viewport" content="width=device-width" />
+  <title>Perkins Framework Demo</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
   <link href="demo.less" media="all" rel="stylesheet/less" />
-
-  <!-- 
-    I am based in LESS.js to render stylesheets. More information can
-    be found at {http://www.lesscss.org/}.
-  -->
-  <script src="../javascripts/less-1.2.1.min.js"></script>
-
-  <!-- 
-    Under development, this section allows you to preview your changes
-    immediately after saving them on the {app.less} file. However, you
-    must remove it once it enters the production stage or it will open
-    a bunch of requests to your server to retrieve new changes. 
-  -->
+  <script src="../javascripts/less-1.2.2.min.js"></script>
   <script charset="utf-8">
     //less.env = "development";
     //less.watch();
   </script>
 
   <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <!--[if lt IE 7 ]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
     <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
   <![endif]-->
 
 </head>
 <body>
-
-
-  <!--
-    Did you call, sir? I am your new website. This page is an example
-    of everything that I can do for you.
-    
-    I want to share some tricks with you, and I will be talking about
-    these if I find an opportunity.
-    
-    The first one is Sparkup. Basically it's a CSS-like HTML expander
-    that you can use together with vim, Textmate and others. The deal
-    is that you write CSS selectors, press a keystroke and voilá, you
-    have a new section with little or no effort.
-    
-    You can get it from {https://github.com/rstacruz/sparkup}. Follow
-    the code and see how your mockup can become a beautiful layout.
-    
-    How to write HTML with Sparkup? Easy, just read the snippets that
-    are shown before each block; try doing it by yourself.
-  -->
-
-
-  <!-- Sparkup: header > h1.logo -->
   <header>
     <h1 class="logo">perkins</h1>
   </header>
-
-
-  <!--
-    See? it was cool! Declare the {header}, add a {div} with a {.row}
-    class as a child and then add another child having two classes...
-    and so on. Basically you use CSS 3 selectors instead of writing a
-    bunch of tedious tags. Once you get used to it, you can have time
-    to help others and spread the word about it!
-    
-    The dimensions of the elements with {.row} class are defined in a
-    file named {perkins.config.less}. Changing the page width becomes
-    easy with this method: just change the {@width} value.
-    
-    How does that work? Probably you have heard of "960 grid system",
-    or the 1kb CSS grid by Taylor Tate. Well, this is the second tip:
-    designing with a grid is much like designing with tables, relying
-    on {float: left} to organize it.
-    
-    Most web designs are defined in columns; sometimes it is just one
-    column with content, sometimes a sidebar with links... There is a
-    large number of ways to layout your site. Grids are like columns,
-    but you define a high number of columns (let us say, 16, which is
-    what I have by default) and define the width of your divs using a
-    number of columns.
-    
-    In the previous HTML block, you have a div with classes {.column}
-    and {.grid-16}, meaning that that div width equals to 16 columns,
-    or 960px.
-    
-    The grid has a width of 960px, 16 columns and 10 pixels of margin
-    by default, but you can adjust these values to anything you want.
-    There is one limitation: it is defined that a grid cannot have 37
-    columns or more. It is a ridiculously large value, though! Nobody
-    uses more than 24 columns, even in complex designs.
-  -->
-
-  <!-- Sparkup: #content > #headings + #typography + #paragraph + #helpers + #frameworkCoreFeatures -->
-  <div id="content">
-    <div id="headings">
-
-      <!-- Sparkup: .row -->
-      <div class="row">
-        
-        <!-- Sparkup: .column.grid-12 > h4.f-h4 + h1 + h2 + h3 + h4 + h5 + h6 -->
-        <div class="column grid-12">
-          <h4 class="f-h4">Headings</h4>
-          <h1>h1: Lorem ipsum dolor sit amet</h1>
-          <h2>h2: Lorem ipsum dolor sit amet</h2>
-          <h3>h3: Lorem ipsum dolor sit amet</h3>
-          <h4>h4: Lorem ipsum dolor sit amet</h4>
-          <h5>h5: Lorem ipsum dolor sit amet</h5>
-          <h6>h6: Lorem ipsum dolor sit amet</h6>
-          <h4 class="f-h4">Paragraph</h4>
-          <p>p: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-
-
-  <!-- 
-    No, this part is not written with Sparkup. The next trick to show
-    is not really a trick but a bunch of useful elements, part of the
-    HTML5 specification.
-    
-    It is not unknown that HTML5 came to scene to rule the world, but
-    for this to happen you must take advantage of HTML5 tags. Not all
-    of these are described here: some are deprecated and possibly new
-    ones will be added to this list.
-  -->
-
-
-        <div class="column grid-4">
-          <h4 class="f-h4">Elements</h4>
-          <a href="javascript:void(0);">&lt;a&gt;</a><br />
-          <abbr title="Abbreviation">&lt;abbr&gt;</abbr><br />
-          <address>&lt;address&gt;</address>
-          <code>&lt;code&gt;</code><br />
-          <del>&lt;del&gt;</del><br />
-          <dfn title="Text Definition">&lt;dfn&gt;</dfn><br />
-          <em>&lt;em&gt;</em><br />
-          <ins>&lt;ins&gt;</ins><br />
-          <kbd>&lt;kbd&gt;</kbd><br />
-          <mark>&lt;mark&gt;</mark><br />
-          <meter>&lt;meter&gt;</meter><br />
-          <output>&lt;output&gt;</output><br />
-          <progress value="50" max="100">Progress: 50</progress><br />
-          <q>&lt;q&gt;</q><br />
-          <s>&lt;s&gt;</s><br />
-          <samp>&lt;sample&gt;</samp><br />
-          <small>&lt;small&gt;</small><br />
-          <span>&lt;span&gt;</span><br />
-          <strong>&lt;strong&gt;</strong><br />
-          <span>This is <sub>&lt;sub&gt;</sub></span><br />
-          <span>This is <sup>&lt;sup&gt;</sup></span><br />
-          <var>&lt;var&gt;</var><br />
-          <p>This is a super<wbr />cali<wbr />fragi<wbr />listic<wbr />espi<wbr />halidous word separated by &lt;wbr&gt; tags</p>
-        </div>
-
-      </div>
+  <div id="headings">
+    <h4 class="f-h4">Headings</h4>
+    <h1>h1: Lorem ipsum dolor sit amet</h1>
+    <h2>h2: Lorem ipsum dolor sit amet</h2>
+    <h3>h3: Lorem ipsum dolor sit amet</h3>
+    <h4>h4: Lorem ipsum dolor sit amet</h4>
+    <h5>h5: Lorem ipsum dolor sit amet</h5>
+    <h6>h6: Lorem ipsum dolor sit amet</h6>
+    <h4 class="f-h4">Paragraph</h4>
+    <p>p: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <div id="elements">
+    <h4 class="f-h4">Elements</h4>
+    <a href="javascript:void(0);">&lt;a&gt;</a>
+    <abbr title="Abbreviation">&lt;abbr&gt;</abbr>
+    <address>&lt;address&gt;</address>
+    <code>&lt;code&gt;</code>
+    <del>&lt;del&gt;</del>
+    <dfn title="Text Definition">&lt;dfn&gt;</dfn>
+    <em>&lt;em&gt;</em>
+    <ins>&lt;ins&gt;</ins>
+    <kbd>&lt;kbd&gt;</kbd>
+    <mark>&lt;mark&gt;</mark>
+    <meter>&lt;meter&gt;</meter>
+    <output>&lt;output&gt;</output>
+    <progress value="50" max="100">Progress: 50</progress>
+    <q>&lt;q&gt;</q>
+    <s>&lt;s&gt;</s>
+    <samp>&lt;sample&gt;</samp>
+    <small>&lt;small&gt;</small>
+    <span>&lt;span&gt;</span>
+    <strong>&lt;strong&gt;</strong>
+    <span><sub>&lt;sub&gt;</sub></span>
+    <span><sup>&lt;sup&gt;</sup></span>
+    <var>&lt;var&gt;</var>
+  </div>
+  <div id="lists">
+    <div class="list-1">
+      <h4 class="f-h4">List</h4>
+      <ul>
+        <li>One lorem ipsum element</li>
+        <li>Another dolor sit amet element</li>
+        <li>A longer text to demonstrate how do long text elements look, consectetuer adipiscing elit</li>
+        <li>Another dolor sit amet element</li>
+        <li>This is the last item</li>
+      </ul>
     </div>
-    <div id="typography">
-      
-      <!-- Sparkup: .row > .column.grid-6 > h4.f-h4 + ul > li*3 + li > ul > li*4 < < li < < .column.grid-5 + .column.grid-5 -->
-      <div class="row">
-        <div class="column grid-6">
-          <h4 class="f-h4">List</h4>
-          <ul>
-            <li>One lorem ipsum element</li>
-            <li>Another dolor sit amet element</li>
-            <li>A longer text to demonstrate how do long text elements look, consectetuer adipiscing elit</li>
-            <li>Nested Elements
-              <ul>
-                <li>One lorem ipsum element</li>
-                <li>Another dolor sit amet element</li>
-                <li>A longer text to demonstrate how do long text elements look, consectetuer adipiscing elit</li>
-                <li>This is the last item</li>
-              </ul>
-            </li>
-            <li>This is the last item</li>
-          </ul>
-        </div>
-        <div class="column grid-5">
-          <h4 class="f-h4">Ordered List</h4>
-          <ol>
-            <li>One lorem ipsum element</li>
-            <li>Another dolor sit amet element</li>
-            <li>A longer text to demonstrate how do long text elements look, consectetuer adipiscing elit</li>
-            <li>Another dolor sit amet element</li>
-            <li>This is the last item</li>
-          </ol>
-        </div>
-        <div class="column grid-5">
-          <h4 class="f-h4">Definition Lists</h4>
-          <dl>
-            <dt>Element to describe</dt>
-              <dd>A complete description on this element</dd>
-            <dt>Another element to describe</dt>
-              <dd>A complete description for this element, but using a longer text area, to show how it looks</dd>
-            <dt>Element to describe</dt>
-              <dd>Less text</dd>
-            <dt>An element to describe</dt>
-              <dd>There is a lot of text here describing an element inside the Perkins design framework. I must remind you all that the Perkins design framework is an excellent way to design the web faster.</dd>
-          </dl>
-        </div>
-      </div>
+    <div class="list-2">
+      <h4 class="f-h4">Ordered List</h4>
+      <ol>
+        <li>One lorem ipsum element</li>
+        <li>Another dolor sit amet element</li>
+        <li>A longer text to demonstrate how do long text elements look, consectetuer adipiscing elit</li>
+        <li>Another dolor sit amet element</li>
+        <li>This is the last item</li>
+      </ol>
     </div>
-    
-
-  <!--
-    Creating a demonstration page including all the features included
-    in Perkins is very challenging. We will stop writing Sparkup, but
-    you should give it a try. Draw a mockup in a piece of paper, take
-    note on the elements to be used and try to write it with Sparkup.
-    
-    Copy the {head} section from this page to your prototype, and the
-    mockup created by you will have an ugly but functional format. It
-    is much better if you write {.column .grid-X .demogrid}; your div
-    structure will be painted with a light blue color.
-    
-    Was it worth? Congratulations! You created a mockup of a page and
-    it did not take more than 5 minutes!
-    
-    The following is blah blah blah... blockquotes, paragraphs, code,
-    tables... There is not much to comment here, other than encourage
-    you to check how these elements are styled. The real fun on these
-    can be found in my {stylesheets/perkins} directory.
-
-    Do not worry, I know that this is being very productive, and that
-    you want this HTML code to be larger and have more tips on pretty
-    HTML design. I also know that I am sometimes too optimistic about
-    what I do. Anyway, there are more comments below, the tour is not
-    finished.
-  -->
-    
-    
-    <div id="paragraph">
-      <div class="row">
-        <div class="column grid-8">
-          <h4 class="f-h4">A block of code</h4>
+    <div class="list-3">
+      <h4 class="f-h4">Definition Lists</h4>
+      <dl>
+        <dt>Element to describe</dt>
+          <dd>A complete description on this element</dd>
+        <dt>Another element to describe</dt>
+          <dd>A complete description for this element, but using a longer text area, to show how it looks</dd>
+        <dt>Element to describe</dt>
+          <dd>Less text</dd>
+        <dt>An element to describe</dt>
+          <dd>There is a lot of text here describing an element inside the Perkins design framework. I must remind you all that the Perkins design framework is an excellent way to design the web faster.</dd>
+      </dl>
+    </div>
+  </div>
+  <br />
+  <article id="theArticle">
+    <h1>This is a Blog Post demo from Perkins</h1>
+    <h6>Written by <strong>Diego Wolf</strong> on <strong>17 Marzo 2012</strong></h6>
+    <figure>
+      <img src="http://flickholdr.com/200/200" alt="Placeholder image" />
+      <figcaption>Random image from flickr</figcaption>
+    </figure>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore <strong>et dolore magna aliqua</strong>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <mark>Duis aute irure dolor in reprehenderit</mark> in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+    <blockquote class="cite">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
+    <p>Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit <em>esse cillum dolore eu fugiat nulla</em> pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <strong>Duis aute irure dolor in reprehenderit in voluptate velit</strong> esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h3>A block of code</h3>
 <pre>
 #include &lt;stdio.h&gt;
 
@@ -257,825 +117,131 @@ int main(int argc, char * argv)
   return 0;
 }
 </pre>
-        </div>
-        <div class="column grid-8">
-          <h4 class="f-h4">A Blockquote</h4>
-          <blockquote>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </blockquote>
-        </div>
-        <div class="column grid-16">
-          <h4 class="f-h4">A Paragraph</h4>
-          <article class="f-articleTest">
-            <h1>Sed do eiusmod tempor incididunt</h1>
-            <figure class="right">
-              <img src="http://lorempixum.com/200/200/technics/1" />
-              <figcaption>Random Tech Image</figcaption>
-            </figure>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore <strong>et dolore magna aliqua</strong>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <mark>Duis aute irure dolor in reprehenderit</mark> in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
-            <blockquote class="left">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
-            <p>Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit <em>esse cillum dolore eu fugiat nulla</em> pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="text3Col">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-    <div id="helpers">
-      <div class="row">
-        <div class="column grid-16">
-          <h4 class="f-h4">Simple Data Tabulation</h4>
-          <table>
-            <tr>
-              <td>Ultra</td>
-              <td>Simple</td>
-              <td>Table</td>
-            </tr>
-            <tr>
-              <td>No th elements</td>
-              <td>Some more demonstration texts</td>
-              <td>Lorem ipsum dolor sit amet</td>
-            </tr>
-          </table>
-        </div>
-        <div class="column grid-16">
-          <h4 class="f-h4">Table with design</h4>
-          <table class="table" summary="This is the summary">
-            <caption>Legend</caption>
-            <thead>
-              <tr>
-                <th scope="col">Author</th>
-                <th scope="col">Code</th>
-                <th scope="col">City</th>
-                <th scope="col">Comment</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Diego Wolf</th>
-                <td>#989238</td>
-                <td>Concepcion, Chile</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-                <td>
-                  <a class="btn sbtn" href="javascript:void(0);">Edit</a>
-                </td>
-              </tr>
-              <tr>
-                <th>Alberto Catetas</th>
-                <td>#989238</td>
-                <td>Santiago, Chile</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-                <td>
-                  <a class="btn sbtn" href="javascript:void(0);">Edit</a>
-                </td>
-              </tr>
-              <tr>
-                <th>Jhonny Melaslavo</th>
-                <td>#989238</td>
-                <td>Buenos Aires, Argentina</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
-                <td>
-                  <a class="btn sbtn" href="javascript:void(0);">Edit</a>
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th scope="row">Total</th>
-                <td colspan="4">3 Examples</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+  <h3>Your reach the end of the article</h3>
+  <p>Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+  </article>
 
+<div id="tables">
+  <h4 class="f-h4">Simple Data Tabulation</h4>
+  <table>
+    <tr>
+      <td>Ultra</td>
+      <td>Simple</td>
+      <td>Table</td>
+    </tr>
+    <tr>
+      <td>No th elements</td>
+      <td>Some more demonstration texts</td>
+      <td>Lorem ipsum dolor sit amet</td>
+    </tr>
+  </table>
+  <h4 class="f-h4">Table with design</h4>
+  <table class="table" summary="This is the summary">
+    <caption>Legend</caption>
+    <thead>
+      <tr>
+        <th scope="col">Author</th>
+        <th scope="col">Code</th>
+        <th scope="col">City</th>
+        <th scope="col">Comment</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Diego Wolf</th>
+        <td>#989238</td>
+        <td>Concepcion, Chile</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        <td>
+          <a class="btn sbtn" href="javascript:void(0);">Edit</a>
+        </td>
+      </tr>
+      <tr>
+        <th>Alberto Cartetas</th>
+        <td>#989238</td>
+        <td>Santiago, Chile</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        <td>
+          <a class="btn sbtn" href="javascript:void(0);">Edit</a>
+        </td>
+      </tr>
+      <tr>
+        <th>Jhonny Melaslavo</th>
+        <td>#989238</td>
+        <td>Buenos Aires, Argentina</td>
+        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+        <td>
+          <a class="btn sbtn" href="javascript:void(0);">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="row">Total</th>
+        <td colspan="4">3 Examples</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<h4 class="f-h4">Helpers</h4>
+  <h4 class="f-h4">Text Alignment Helpers</h4>
+  <p class="tal">Text to the left (.tal)</p>
+  <p class="tac">Text to the center (.tac)</p>
+  <p class="tar">Text to the right (.tar)</p>
+  <h4 class="f-h4">"Lists as Menu" Helpers</h4>
+  <h4 class="f-h4">Basic Vertical Menu (.v-menu)</h4>
+  <ul class="v-menu">
+    <li>
+      <a href="javascript:void(0);">First link</a>
+    </li>
+    <li>
+      <a href="javascript:void(0);">Second link</a>
+    </li>
+    <li>
+      <a href="javascript:void(0);">Third link</a>
+    </li>
+  </ul>
+  <hr />
 
-  <!--
-    Back to the amazing stuff. If you are like the ones who wrote me,
-    you have been writing HTML since late 90's. For some, the idea of
-    including style="text-align:center;" in each tag carries nostalgy
-    to their minds. For others, it was a lot of tedious work. For the
-    ones who wrote me, it was the latter, hence they taught me how to
-    assign trivial styles to classes.
-    
-    We have:
-    
-      - .tac for Text Align Center
-      - .tal for Text Align Left
-      - .tar for Text Align Right
-    
-    We also have .taj (yes, Justified), but it creates blank areas in
-    the resulting design, due to the lack of hyphenation in browsers.
-
-    Editor's note: try to understand an explanation given by a lawyer
-    about astronomy. The same happens here: a developer tried to give
-    an explanation on interface design. Good time for commercials:
-    
-    If you have questions or suggestions about Perkins, you can write
-    the ones who made me to the mailing list located at:
-    
-    http://groups.google.com/group/perkins-less-devel/
-  -->
-
-
-        <div class="column grid-16">
-          <h4 class="f-h4">Text Alignment</h4>
-          <p class="tal">Text to the left</p>
-          <p class="tac">Text to the center</p>
-          <p class="tar">Text to the right</p>
-          <br />
-
-
-  <!--
-    After a short commercial pause, we are back.
-    
-    Where did we leave? Ah yes, common styles. Are these amazing? No?
-    Well, these were trivial, but the same strategy can be applied to
-    unordered lists to create vertical, horizontal and tabbed menues.
-    
-    And, as you can figure out, we named these conveniently:
-    
-      - .v-menu is vertical menu.
-      - .t-menu is tabbed menu.
-      - .h-menu is horizontal menu.
-      
-    Do you remember your mockup? You can place these elements too, to
-    complete your structure. I would recommend not to worry about the
-    details of colour, images or other stuff. In rapid development, a
-    view is the first priority, but that does not mean the first task
-    to do. However, navigation can provide a guide for you on what is
-    the first thing that need to be done.
-  -->
-
-
-          <h4 class="f-h4">Basic Vertical Menu (.v-menu)</h4>
-          <ul class="v-menu">
-            <li>
-              <a href="javascript:void(0);">First link</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">Second link</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">Third link</a>
-            </li>
-          </ul>
-          <hr />
-
-          <h4 class="f-h4">Basic Horizontal Menu (.h-menu)</h4>
-          <ul class="h-menu">
-            <li>
-              <a href="javascript:void(0);">First link</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">Second link</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">Third link</a>
-            </li>
-          </ul>
-          <hr />
-          <h4 class="f-h4">Basic Tab Menu (.t-menu)</h4>
-          <ul class="t-menu">
-            <li>
-              <a href="javascript:void(0);">First link</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">Second link</a>
-            </li>
-            <li>
-              <a href="javascript:void(0);">Third link</a>
-            </li>
-          </ul>
-          </div>
-          <br />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column grid-10">
-  <!--
-    We are near to the end of our demonstration. Take a break, grab a
-    cup of coffee and think of what you have learnt:
-  
-      - What is LESS and how it is used to create smarter CSS.
-      - How to configure Perkins and be ready to go in a few minutes.
-      - How to refresh the changes you make to your stylesheets.
-      - How to prototype a Perkins mockup with Sparkup.
-      - How to use the Perkins configurable grid.
-      - How to use the Perkins classes to avoid common inline styles.
-  
-    You also have some snippets for:
-  
-      - Including fonts from the Google Font Repository
-      - Supporting HTML5 on older browsers thanks to html5shiv.
-      - Common HTML5 elements.
-      - Some styles for paragraphs and other block-level elements.
-  
-    If you decided to play with Perkins, you did also go from 0 to 60
-    with a small mockup which can be a beginning for your project, an
-    overview on rapid application design.
-  
-    These things may look nice, but if you take a look on the wayback
-    machine {http://www.archive.org/}, you have tools for designing a
-    site from 1995: static pages. The most important thing on dynamic
-    website building is the design of forms. The following blocks are
-    a demonstration of the nice styles that I include on forms. There
-    is a lack of advanced attributes such as placeholders. It is your
-    mission to implement these as needed.
-  -->
-
-
-         <h4 class="f-h4">Forms</h4>
-         <p class="notice">This is the very first attempt to adapt some flexible Forms into Perkins</p>
-         <p>Default Form</p>
-         <ul class="form">
-           <li><label>Label</label><input type="text"><span class="leftNote">This is a <strong>left</strong> note</span></li>
-           <li><label>Label</label><input type="text"><span class="bottomNote">This is a <strong>buttom</strong> note</span></li>
-           <li><label>Label</label><select><option></option></select></li>
-           <li><label>Label</label><input type="radio"></li>
-           <li><label>Label</label><input type="checkbox"></li>
-           <li><label>This is a label that is long enough to go onto three lines</label><textarea cols="40" rows="5"></textarea></li>
-         </ul>
-      </div>
-      <div class="column grid-6">
-  <!--
-    Forms are important but they are nothing without "call to action"
-    buttons, that are anchors styled like form buttons.
-  
-    There are two types of call to action buttons:
-  
-      - btn for buttons
-      - sbtn for small buttons
-  
-    You can wrap the {btn} class inside other tags like {h1}. It will
-    result in a big button due to property inheritance.
-  -->
-
-          <h4 class="f-h4">Call to action buttons</h4>
-          <h1><a class="btn" href="javascript:void(0);">H1 Button</a></h1>
-          <h2><a class="btn" href="javascript:void(0);">H2 Button</a></h2>
-          <h3><a class="btn" href="javascript:void(0);">H3 Button</a></h3>
-          <a class="btn" href="javascript:void(0);">Link Button</a>
-          <br />
-          <a class="btn sbtn" href="javascript:void(0);">Link Button Modifier</a>
-          <br />
-          <input type="submit" name="" value="Submit">
-          <br />
-          <button class="btn" type="button">Button</button>
-      </div>
-    </div>
-    <div class="row">
-        <div class="column grid-16">
-
-  <!--
-    Once the user provides information through forms it is a courtesy
-    to provide feedback; the following elements are styled especially
-    to achieve this objective.
-  -->
-  
-          <h4 class="f-h4">Feedback</h4>
-          <p class="information">Duis aute irure dolor in reprehenderit <a href="javascript:void(0);">in voluptate velit esse cillum</a> dolore eu fugiat nulla pariatur.</p>
-          <p class="error">Duis aute irure dolor in reprehenderit <a href="javascript:void(0);">in voluptate velit esse cillum</a> dolore eu fugiat nulla pariatur.</p>
-          <p class="notice">Duis aute irure dolor in reprehenderit <a href="javascript:void(0);">in voluptate velit esse cillum</a> dolore eu fugiat nulla pariatur.</p>
-          <p class="success">Duis aute irure dolor in reprehenderit <a href="javascript:void(0);">in voluptate velit esse cillum</a> dolore eu fugiat nulla pariatur.</p>          
-        </div>
-      </div>
-    </div>
-    
-
-  <!--
-    There are a bunch of undocumented mixins. All that you have to do
-    is to read the {stylesheets/perkins/} directory, look at the code
-    and read the comments.
-    
-    The next thing that I have is the mnml icon set. What is so nice?
-    It is not really a set of PNG icons but a typography containing a
-    bunch of the most used icons. What are the advantages? Of course,
-    typographies are resizable just like normal fonts, and you do not 
-    have to worry about SVG support. The most noticeable disadvantage
-    is that you cannot force a typography to have two or more colors.
-    
-    Anyway, I hope you like it.
-  -->
-
-
-      <div class="row">
-        <div class="column grid-16">
-          <h4 class="f-h4">mnml Icons version 2.2</h4>
-          <p>A set of minimal icons to help you iconify that feature ;) powered by @font-face</p>
-          <p class="notice">In order to use this font you must use the class <em>.p-icon</em> eg. <code>&lt;span class="p-icon"&gt;M&lt;/span&gt;</code> this will show a Star <span class="p-icon">M</span></p>
-          <p class="notice">But a more semantic way to do this is calling the icon by name eg. <code>&lt;span class="p-star"&gt;&lt;/span&gt;</code> this will show a Star <span class="p-star"></span></p>
-        </div>
-        <div class="iconDemo">
-         <ul class="icon-list">
-           <li><span class="p-bird"></span><span class="i-name">.p-bird</span></li>
-           <li><span class="p-facebook"></span><span class="i-name">.p-facebook</span></li>
-           <li><span class="p-flickr"></span><span class="i-name">.p-flickr</span></li>
-           <li><span class="p-delicious"></span><span class="i-name">.p-delicious</span></li>
-           <li><span class="p-youtube"></span><span class="i-name">.p-youtube</span></li>
-           <li><span class="p-vimeo"></span><span class="i-name">.p-vimeo</span></li>
-           <li><span class="p-tumblr"></span><span class="i-name">.p-tumblr</span></li>
-           <li><span class="p-linkedin"></span><span class="i-name">.p-linkedin</span></li>
-           <li><span class="p-skype"></span><span class="i-name">.p-skype</span></li>
-           <li><span class="p-twitter"></span><span class="i-name">.p-twitter</span></li>
-           <li><span class="p-googleplus"></span><span class="i-name">.p-googleplus</span></li>
-           <li><span class="p-questionmark"></span><span class="i-name">.p-questionmark</span></li>
-           <li><span class="p-pin"></span><span class="i-name">.p-pin</span></li>
-         </ul>
-         <ul class="icon-list">
-           <li><span class="p-filter"></span><span class="i-name">.p-filter</span></li>
-           <li><span class="p-database"></span><span class="i-name">.p-database</span></li>
-           <li><span class="p-scissors"></span><span class="i-name">.p-scissors</span></li>
-           <li><span class="p-magnifyingglass"></span><span class="i-name">.p-magnifyingglass</span></li>
-           <li><span class="p-suitcase"></span><span class="i-name">.p-suitcase</span></li>
-           <li><span class="p-route"></span><span class="i-name">.p-route</span></li>
-           <li><span class="p-shopingcart"></span><span class="i-name">.p-shopingcart</span></li>
-           <li><span class="p-information"></span><span class="i-name">.p-information</span></li>
-           <li><span class="p-dropper"></span><span class="i-name">.p-dropper</span></li>
-           <li><span class="p-puzzle"></span><span class="i-name">.p-puzzle</span></li>
-           <li><span class="p-plus"></span><span class="i-name">.p-plus</span></li>
-           <li><span class="p-minus"></span><span class="i-name">.p-minus</span></li>
-           <li><span class="p-compass"></span><span class="i-name">.p-compass</span></li>
-         </ul>
-         <ul class="icon-list">
-           <li><span class="p-coffeecup"></span></span><span class="i-name">.p-coffeecup</span></li>
-           <li><span class="p-testtube"></span></span><span class="i-name">.p-testtube</span></li>
-           <li><span class="p-trash"></span></span><span class="i-name">.p-trash</span></li>
-           <li><span class="p-download"></span></span><span class="i-name">.p-download</span></li>
-           <li><span class="p-clip"></span></span><span class="i-name">.p-clip</span></li>
-           <li><span class="p-rss"></span></span><span class="i-name">.p-rss</span></li>
-           <li><span class="p-printer"></span></span><span class="i-name">.p-printer</span></li>
-           <li><span class="p-page"></span></span><span class="i-name">.p-page</span></li>
-           <li><span class="p-copy"></span></span><span class="i-name">.p-copy</span></li>
-           <li><span class="p-cassette"></span></span><span class="i-name">.p-cassette</span></li>
-           <li><span class="p-speaker"></span></span><span class="i-name">.p-speaker</span></li>
-           <li><span class="p-bookmark"></span></span><span class="i-name">.p-bookmark</span></li>
-           <li><span class="p-pendrive"></span></span><span class="i-name">.p-pendrive</span></li>
-         </ul>
-         <ul class="icon-list">
-           <li><span class="p-flag"></span><span class="i-name">.p-flag</span></li>
-           <li><span class="p-user"></span><span class="i-name">.p-user</span></li>
-           <li><span class="p-link"></span><span class="i-name">.p-link</span></li>
-           <li><span class="p-plane"></span><span class="i-name">.p-plane</span></li>
-           <li><span class="p-calendar"></span><span class="i-name">.p-calendar</span></li>
-           <li><span class="p-code"></span><span class="i-name">.p-code</span></li>
-           <li><span class="p-delpage"></span><span class="i-name">.p-delpage</span></li>
-           <li><span class="p-bandaidpatch"></span><span class="i-name">.p-bandaidpatch</span></li>
-           <li><span class="p-smartphone"></span><span class="i-name">.p-smartphone</span></li>
-           <li><span class="p-stopwatch"></span><span class="i-name">.p-stopwatch</span></li>
-           <li><span class="p-mapmark"></span><span class="i-name">.p-mapmark</span></li>
-           <li><span class="p-resize"></span><span class="i-name">.p-rezise</span></li>
-           <li><span class="p-lightning"></span><span class="i-name">.p-lightning</span></li>
-         </ul>
-         <ul class="icon-list">
-           <li><span class="p-folder"></span><span class="i-name">.p-folder</span></li>
-           <li><span class="p-cloud"></span><span class="i-name">.p-cloud</span></li>
-           <li><span class="p-house"></span><span class="i-name">.p-house</span></li>
-           <li><span class="p-world"></span><span class="i-name">.p-world</span></li>
-           <li><span class="p-settings"></span><span class="i-name">.p-settings</span></li>
-           <li><span class="p-bug"></span><span class="i-name">.p-bug</span></li>
-           <li><span class="p-leftarrow"></span><span class="i-name">.p-leftarrow</span></li>
-           <li><span class="p-rightarrow"></span><span class="i-name">.p-rightarrow</span></li>
-           <li><span class="p-camera"></span><span class="i-name">.p-camera</span></li>
-           <li><span class="p-terminal"></span><span class="i-name">.p-terminal</span></li>
-           <li><span class="p-badge"></span><span class="i-name">.p-badge</span></li>
-           <li><span class="p-piechart"></span><span class="i-name">.p-piechart</span></li>
-           <li><span class="p-gauge"></span><span class="i-name">.p-gauge</span></li>
-         </ul>
-         <ul class="icon-list">
-           <li><span class="p-reload"></span><span class="i-name">.p-reload</span></li>
-           <li><span class="p-padlockclose"></span><span class="i-name">.p-padlockclose</span></li>
-           <li><span class="p-pen"></span><span class="i-name">.p-pen</span></li>
-           <li><span class="p-directions"></span><span class="i-name">.p-directions</span></li>
-           <li><span class="p-tag"></span><span class="i-name">.p-tag</span></li>
-           <li><span class="p-inbox"></span><span class="i-name">.p-inbox</span></li>
-           <li><span class="p-pin2"></span><span class="i-name">.p-pin2</span></li>
-           <li><span class="p-key"></span><span class="i-name">.p-key</span></li>
-           <li><span class="p-money"></span><span class="i-name">.p-money</span></li>
-           <li><span class="p-turn"></span><span class="i-name">.p-turn</span></li>
-           <li><span class="p-phone"></span><span class="i-name">.p-phone</span></li>
-           <li><span class="p-diskette"></span><span class="i-name">.p-diskette</span></li>
-           <li><span class="p-drop"></span><span class="i-name">.p-drop</span></li>
-         </ul>
-         <ul class="icon-list">
-           <li><span class="p-caution"></span><span class="i-name">.p-caution</span></li>
-           <li><span class="p-magicwand"></span><span class="i-name">.p-magicwand</span></li>
-           <li><span class="p-target"></span><span class="i-name">.p-target</span></li>
-           <li><span class="p-externallink"></span><span class="i-name">.p-externallink</span></li>
-           <li><span class="p-clock"></span><span class="i-name">.p-clock</span></li>
-           <li><span class="p-deny"></span><span class="i-name">.p-deny</span></li>
-           <li><span class="p-stop"></span><span class="i-name">.p-stop</span></li>
-           <li><span class="p-heart"></span><span class="i-name">.p-heart</span></li>
-           <li><span class="p-gear"></span><span class="i-name">.p-gear</span></li>
-           <li><span class="p-inboxfull"></span><span class="i-name">.p-inboxfull</span></li>
-           <li><span class="p-padlockopen"></span><span class="i-name">.p-padlockopen</span></li>
-           <li><span class="p-speechbubble"></span><span class="i-name">.p-speechbubble</span></li>
-           <li><span class="p-film"></span><span class="i-name">.p-film</span></li>
-         </ul>
-         <ul class="icon-list">
-           <li><span class="p-eye"></span><span class="i-name">.p-eye</span></li>
-           <li><span class="p-star"></span><span class="i-name">.p-star</span></li>
-           <li><span class="p-battery"></span><span class="i-name">.p-battery</span></li>
-           <li><span class="p-wrench"></span><span class="i-name">.p-wrench</span></li>
-           <li><span class="p-sun"></span><span class="i-name">.p-sun</span></li>
-           <li><span class="p-contrast"></span><span class="i-name">.p-contrast</span></li>
-           <li><span class="p-grid"></span><span class="i-name">.p-grid</span></li>
-           <li><span class="p-list"></span><span class="i-name">.p-list</span></li>
-         </ul>
-        </div>
-      </div>
-    </div>
-    
-    
-  <!--
-    Did you like the grid? This is a more complete version on how the
-    divs are aligned to the left. It provides an easy wireframe tool,
-    and a good starting point for your design.
-    
-    To make things clear, that is the workflow for a good design as I
-    understand it:
-    
-      - Have your wireframe.
-      - Review usability.
-      - Share it with your customers so they can give you content.
-      - Create the page style according to your target audience.
-      - Advanced layout design.
-      - Review usability again.
-      - Polish what you need and you are done!
-  -->
-
-    <div id="demogrid">
-      <div class="row">
-        <div class="column grid-16">
-          <h4 class="f-h4">Configurable Grid System</h4>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-3 demogrid">
-          <p>3</p>
-        </div>
-        <div class="column grid-3 demogrid">
-          <p>3</p>
-        </div>
-        <div class="column grid-4 demogrid">
-          <p>4</p>
-        </div>
-        <div class="column grid-3 demogrid">
-          <p>3</p>
-        </div>
-        <div class="column grid-3 demogrid">
-          <p>3</p>
-        </div>
-        <div class="column grid-4 demogrid">
-          <p>4</p>
-        </div>
-        <div class="column grid-4 demogrid">
-          <p>4</p>
-        </div>
-        <div class="column grid-4 demogrid">
-          <p>4</p>
-        </div>
-        <div class="column grid-4 demogrid">
-          <p>4</p>
-        </div>
-        <div class="column grid-5 demogrid">
-          <p>5</p>
-        </div>
-        <div class="column grid-6 demogrid">
-          <p>6</p>
-        </div>
-        <div class="column grid-5 demogrid">
-          <p>5</p>
-        </div>
-        <div class="column grid-6 demogrid">
-          <p>6</p>
-        </div>
-        <div class="column grid-4 demogrid">
-          <p>4</p>
-        </div>
-        <div class="column grid-6 demogrid">
-          <p>6</p>
-        </div>
-        <div class="column grid-7 demogrid">
-          <p>7</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-7 demogrid">
-          <p>7</p>
-        </div>
-        <div class="column grid-8 demogrid">
-          <p>8</p>
-        </div>
-        <div class="column grid-8 demogrid">
-          <p>8</p>
-        </div>
-        <div class="column grid-9 demogrid">
-          <p>9</p>
-        </div>
-        <div class="column grid-7 demogrid">
-          <p>7</p>
-        </div>
-        <div class="column grid-10 demogrid">
-          <p>10</p>
-        </div>
-        <div class="column grid-6 demogrid">
-          <p>6</p>
-        </div>
-        <div class="column grid-11 demogrid">
-          <p>11</p>
-        </div>
-        <div class="column grid-5 demogrid">
-          <p>5</p>
-        </div>
-        <div class="column grid-12 demogrid">
-          <p>12</p>
-        </div>
-        <div class="column grid-4 demogrid">
-          <p>4</p>
-        </div>
-        <div class="column grid-13 demogrid">
-          <p>13</p>
-        </div>
-        <div class="column grid-3 demogrid">
-          <p>3</p>
-        </div>
-        <div class="column grid-14 demogrid">
-          <p>14</p>
-        </div>
-        <div class="column grid-2 demogrid">
-          <p>2</p>
-        </div>
-        <div class="column grid-15 demogrid">
-          <p>15</p>
-        </div>
-        <div class="column grid-1 demogrid">
-          <p>1</p>
-        </div>
-        <div class="column grid-16 demogrid">
-          <p>16</p>
-        </div>
-      </div>
-    </div>
-
-    <!--
-      Was it too boring? Did it remind your online bank or applications
-      at your office? It does not have to be that way.
-
-      The following section is full of stunning new features; cool ones
-      that are not part of what I include for CSS3 handling. Almost all
-      the contents that you are watching there are styled using mixins.
-
-      What are mixins?
-
-      These are CSS3 functions (not really part of CSS3 but are related
-      to LESS). Mixins take parameters, perform some operations and the
-      returned value is a CSS style applied to an element. Basically, a
-      mixin can provide cross-browser functionality. Instead of using a
-      collection of browser-specific attributes, a mixing encloses them
-      and provide an unique interface to access them directly. 
-
-      Take the .radius() mixin as an example:
-
-      Internally, to implement border-radius across browsers, there are
-      a bunch of CSS3 properties. These are:
-
-        -moz-border-radius
-        -webkit-border-radius
-        -o-border-radius
-        -ms-border-radius
-        border-radius
-
-      Ugly thing to have in a CSS stylesheet. I grouped these to ensure
-      that every browser supporting border-radius will render pages the
-      way we want. If tomorrow Apple releases Safari for iPad, and have
-      support for -ios5-border-radius instead of -webkit-border-radius,
-      we just modify the mixin and the support is complete. It is easy,
-      as easy as multiplying by one.
-    -->
-
-
-    <div id="frameworkCoreFeatures">
-      <div class="row">
-        <div class="column grid-16">
-          <h4 class="f-h4">Some of the mixins that are included</h4>
-          <h5>Font Mixin: <code>.font();</code></h5>
-  <pre>
-  // expects: <span>@weight</span>, <span>@size</span>, <span>@lineheight</span>, <span>@fontfamily</span>
-  // defaults: normal, 16px, 20px, @sans
-  // note that the variable @sans can be changed in perkins.config.less
-
-  // DEMO:
-  .p-fontmixin {
-    <span>.font(bold, 28px, 32px, "Georgia", Times New Roman, serif);</span>
-    text-align: center;
-  }
-  </pre>
-            <div class="result">
-              <h5>Demo Output:</h5>
-              <p class="p-fontmixin">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <h5>Radius Mixin: <code>.radius();</code></h5>
-  <pre>
-  // expect: <span>@radius</span>
-  // default: 5px
-  // note that you can get fancy with it and selectively apply rounding to certain corners
-
-  // DEMO:
-  .p-radius {
-    <span>.radius(0 10px 5px 40px);</span>
-    border: 1px solid darken(@orange, 20%);
-    background: @orange;
-    padding: 10px;
-    text-align: center;
-    color: @white;
-  }
-  </pre>
-            <div class="result">
-              <h5>Demo Output:</h5>
-              <p class="p-radius">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <h5>Rotate Mixin: <code>.rotate();</code></h5>
-  <pre>
-  // expect: <span>@deg</span>
-  // default: -45deg
-
-  // DEMO:
-  .p-rotate {
-    <span>.rotate();</span>
-    position: absolute;
-    top: -135px;
-    left: 200px;
-    background: @red;
-    padding: 10px;
-    color: @white;
-    .bs();
-  }
-  </pre>
-            <div class="result">
-              <h5>Demo Output:</h5>
-              <p class="p-rotate">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <h5>Box Shadow Mixin: <code>.bs();</code></h5>
-  <pre>
-  // expects: <span>@bsval</span>, <span>@due</span>
-  // default: 0px 0px 0.83em #333, 0 0 0 transparent
-
-  // DEMO:
-  .p-bs {
-    <span>.bs(0 2px 5px #222, inset 0 1px 3px #fff);</span>
-    width: 200px;
-    margin: -20px auto 10px;
-    padding: 10px;
-    .radius();
-    #gradient > .v();
-    color: @gray-light;
-    .ts(0 -1px 1px @black);
-  }
-  </pre>
-            <div class="result">
-              <h5>Demo Output:</h5>
-              <p class="p-bs">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <h5>Gradient Mixin: <code>#gradient > .v();</code> <span class="i">+</span> <code>#gradient > .h();</code> <span class="i">+</span> <code>#gradient > .hline();</code></h5>
-  <pre>
-  // .v() expects: <span>@startColor</span>, <span>@endColor</span>, <span>@img</span>
-  // default: #555, #333, none
-  // .h() expects: <span>@startColor</span>, <span>@endColor</span>, <span>@img</span>
-  // default: #555, #333, none
-  // .hline() expects: <span>@startColor</span>, <span>@midColor1</span>, <span>@midColor2</span>, <span>@endColor</span>, <span>@img</span>
-  // default: #B0BAC5, #9DA7B2, #919CA8, #7E8A98, none
-
-  // DEMO:
-  .p-gradientV {
-    <span>#gradient > .v();</span>
-    width: 400px;
-    margin: -20px auto 10px;
-    padding: 10px;
-    .radius();
-    color: @white;
-  }
-  .p-gradientH {
-    <span>#gradient > .h(#69B9DA, #007BAD, url(../images/cross.png));</span>
-    width: 400px;
-    margin: 10px auto 10px;
-    padding: 10px;
-    .radius();
-    color: @white;
-  }
-  .p-gradientHline {
-    <span>#gradient > .hline();</span>
-    width: 400px;
-    margin: 10px auto 10px;
-    padding: 10px;
-    .radius();
-    color: @white;
-    .ts(0 -1px 2px #333);
-  }
-  </pre>
-            <div class="result">
-              <h5>Demo Output:</h5>
-              <p class="p-gradientV">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p class="p-gradientH">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p class="p-gradientHline">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-          <div class="column grid-16">
-            <p class="tac information">The framework has more mixins that you can use. See <code>p-mixins.less</code> to view the rest of them</p>
-          </div>
-        </div>
-      </div>
-  <!--
-    That is all. A footer element contains information on the company
-    and the page designer. For me, it is the end of the tutorial. But
-    there are more things to read and understand. Some resources are:
-  
-      - p.erkins.com/ (My website)
-      - groups.google.com/group/perkins-less-devel (Mailing list)
-      - code.google.com/p/perkins-less (SVN repository)
-      - @carloselias, @alvaroveliz and @hagarelvikingo at Twitter.
-  
-    See you on the next release!
-  -->
-  
-  <footer>
-    <div class="row">
-      <div class="column grid-16">
-        <p class="tac"><strong>perkins</strong> is under MIT License</p>
-        <p class="tac"><small>Copyleft 2011 - <a href="http://carloselias.cl">Carlos El&iacute;as</a> and the <strong>perkins</strong> crew</small></p>
-      </div>
-    </div>
-  </footer>
+  <h4 class="f-h4">Basic Horizontal Menu (.h-menu)</h4>
+  <ul class="h-menu">
+    <li>
+      <a href="javascript:void(0);">First link</a>
+    </li>
+    <li>
+      <a href="javascript:void(0);">Second link</a>
+    </li>
+    <li>
+      <a href="javascript:void(0);">Third link</a>
+    </li>
+  </ul>
+  <hr />
+  <h4 class="f-h4">Basic Tab Menu (.t-menu)</h4>
+  <ul class="t-menu">
+    <li>
+      <a href="javascript:void(0);">First link</a>
+    </li>
+    <li>
+      <a href="javascript:void(0);">Second link</a>
+    </li>
+    <li>
+      <a href="javascript:void(0);">Third link</a>
+    </li>
+  </ul>
+  <br />
+  <h4 class="f-h4">Forms</h4>
+  <p class="information">Perkins adopt the approach form RMSForms by <strong>Robert Sandy</strong> so we can have some flexible forms <a href="http://www.rmsjr.com/blog/web-design/rmsforms-a-flexible-tableless-css-forms-framework/">if you like to know more head over his website</a></p>
+  <p>Default Form</p>
+  <ul class="form">
+   <li><label>Label</label><input type="text"></li>
+   <li><label>Label</label><input type="text"></li>
+   <li><label>Label</label><select><option></option></select></li>
+   <li><label>Label</label><input type="radio"></li>
+   <li><label>Label</label><input type="checkbox"></li>
+   <li><label>And the last Label</label><textarea>Textarea</textarea></li>
+ </ul>
 </body>
 </html>
 

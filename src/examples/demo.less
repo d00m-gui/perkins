@@ -12,6 +12,8 @@
 //// {>o<} 3rd Party Bowties
 @import "../stylesheets/plugins/mnmlicons/mnmlicons";
 
+@p-sans: 'Open Sans', sans-serif;
+
 @p-palette-saturation:            0;
 @p-palette-lightness:             0;
 @p-palette-hue:                   0;
@@ -20,7 +22,18 @@
 
 body {
   margin: 0 auto;
-  width: 960px;
+  width: 98%;
+}
+p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #575757;
+}
+h1, h2, h3 {
+  font-weight: 800;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
 }
 .f-h4 {
   text-transform: uppercase;
@@ -81,4 +94,116 @@ body {
       }
     }
   }
+}
+#headings, #elements {
+  .column(16);
+}
+#elements {
+  overflow: hidden;
+  margin-bottom: 35px;
+  address {
+    display: inline;
+  }
+}
+#lists {
+  .list-1 {
+    .column(16);
+  }
+  .list-2 {
+    .column(16);
+  }
+  .list-3 {
+    .column(16);
+  }
+}
+#theArticle {
+  .column(16);
+  h1, h3 {
+    text-transform: uppercase;
+  }
+  h6 {
+    margin-bottom: 30px;
+    color: #b7b7b7;
+  }
+  figure {
+    margin: 10px auto;
+  }
+  pre {
+    font-size: 1.3rem;
+    font-weight: normal;
+  }
+}
+#tables {
+  display: none;
+}
+
+
+
+// Media Queries
+@media (min-width:480px) {
+  //@import "480";
+}
+@media (min-width:768px) {
+  //@import "768";
+  #lists {
+    .list-1 {
+      .column(8);
+    }
+    .list-2 {
+      .column(8);
+    }
+  }
+  #theArticle {
+    figure {
+      float: right;
+      margin: 10px;
+      figcaption {
+        display: block;
+        font-size: 1.3rem;
+        line-height: 1;
+        font-weight: bold;
+      }
+    }
+    .cite {
+      float: left;
+      width: 200px;
+    }
+    p {
+      max-width: 700px;
+    }
+  } 
+  #tables {
+    display: block;
+  }
+}
+@media (min-width:960px) {
+  //@import "960";
+  body {
+    width: 70%;
+  }
+  p {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    color: #575757;
+  }
+  #lists {
+    .list-1 {
+      .column(5);
+    }
+    .list-2 {
+      .column(5);
+    }
+    .list-3 {
+      .column(6);
+      dd {
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+        color: #575757;
+      }
+    }
+  }
+}
+@media (min-width:1200px) {
+  //@import "1200";
 }

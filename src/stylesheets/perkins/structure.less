@@ -47,10 +47,11 @@
     outline: none;
   }
   blockquote {
-    border-left: 0.5em @system solid;
+    border-left: 0.3em @system solid;
     line-height: 1.5;
-    margin: 1.5em 0.5 1.5em 1.5em;
-    padding: 1.5em;
+    margin: 1.5em 0.5 2em 1.5em;
+    padding: 0.5em 1em;
+    .box-sizing();
   }
   mark {
     background-color: #FFFCE1;
@@ -226,6 +227,20 @@
   var {
     font-style: italic;
   }
+
+  // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix() {
+  *zoom:1;
+  
+  &:before,
+  &:after {
+      content:"";
+      display:table;
+  }
+  &:after {
+      clear:both;
+  }
+}
   
   // Clear
   .clear, br {
@@ -263,10 +278,8 @@
     list-style-position: inside;
     list-style-type: disc;
     margin: 0 1.5em 1.5em 0;
-
     ul {
       list-style-type: square;
-
       ul {
         list-style-type: circle;
       }
@@ -274,6 +287,9 @@
     li {
       margin: 0 0 0.5em 0.85em;
     }
+    li ul {
+      margin: 0 1.5em 0 0;
+    } 
   }
   ol {
     list-style-position: inside;
@@ -281,6 +297,9 @@
     margin: 1.0em 0.5em 0.5em 0.5em;
     li {
       margin: 0em 0.5em 0.5em 0.5em;
+    }
+    li ul {
+      margin: 0 1.5em 0 0;
     }
   }
   dl {

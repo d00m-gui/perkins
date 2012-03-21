@@ -1,25 +1,24 @@
+.font(@weight: normal, @size: 16px, @lineheight: 20px, @fontfamily: @sans) {
+  font-family:                @fontfamily;
+  font-size:                  @size;
+  font-weight:                @weight;
+  line-height:                @lineheight;
+}
 
-  .font(@weight: normal, @size: 16px, @lineheight: 20px, @fontfamily: @sans) {
-    font-family:                @fontfamily;
-    font-size:                  @size;
-    font-weight:                @weight;
-    line-height:                @lineheight;
-  }
-
-  .ta(@side: left) {
-    text-align:                   @side;
-  }
+.ta(@side: left) {
+  text-align:                   @side;
+}
 
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
 
-  #alpha {
-    .background(@color: #fff, @alpha: 1) {
-      background-color:           hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-    }
-
-    .border(@color: #fff, @alpha: 1) {
-      border-color:               hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-      background-clip:            padding-box;
-    }
+#alpha {
+  .background(@color: #fff, @alpha: 1) {
+    background-color:           hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
   }
+
+  .border(@color: #fff, @alpha: 1) {
+    border-color:               hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+    background-clip:            padding-box;
+  }
+}
