@@ -24,12 +24,10 @@
 /**
  *  Palette generator calculations
  */
-
-
-
+ 
   @p-preprocessor-lightness:      lighten(#FF0000, @p-palette-lightness);
-  @p-preprocessor-saturate:       saturate(@p-preprocessor-lightness, @p-palette-saturation);
-  @p-color-palette-base:          spin(@p-preprocessor-lightness, @p-palette-hue);
+  @p-preprocessor-saturate:       desaturate(@p-preprocessor-lightness, @p-palette-desaturation);
+  @p-color-palette-base:          spin(@p-preprocessor-saturate, @p-palette-hue);
 
 /**
  *  Color palette generation

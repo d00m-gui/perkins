@@ -9,11 +9,11 @@ var path     = require('path'),
     core     = require('./lib/core.js'),
     server   = require('./lib/preview.js'),
     cli      = require('./lib/cli.js')(),
-    colors   = require('/usr/lib/node_modules/colors');
+    colors   = require('colors');
 
 perkins
   .version('Perkins 2.0.3'.bold)
-  .usage('[command] --options <dir>')
+  .usage('[command] --options <dir>'.bold)
   .option('-p, --port <port>', 'specify the port [8000]', Number, 8000)
   .option('-m, --min', 'minifies Perkins into a css file.', false)
   .option('-v, --verbose', 'output incoming requests.', false)

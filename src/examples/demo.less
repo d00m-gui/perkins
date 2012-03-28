@@ -9,16 +9,16 @@
 @import "../stylesheets/perkins/shapes";
 @import "../stylesheets/perkins/ui";
 
-//// {>o<} 3rd Party Bowties
+// {>o<} 3rd Party Bowties
 @import "../stylesheets/plugins/mnmlicons/mnmlicons";
 
-@p-sans: 'Open Sans', sans-serif;
+@p-sans: 'Open Sans';
 
-@p-palette-saturation:            0;
-@p-palette-lightness:             0;
-@p-palette-hue:                   0;
+@p-palette-desaturation: 20;
+@p-palette-lightness: 10;
+@p-palette-hue: -5;
 
-@p-font-colors-link:              @p-orange;
+@p-font-colors-link: @p-orange;
 
 body {
   margin: 0 auto;
@@ -42,15 +42,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0;
   padding: 10px 10px 10px 0;
   margin: 15px 10px 10px 0;
-  &:before {
-    font-family: @p-mono;
-    color: @p-orange;
-    font-size: 12px;
-    content: "{>o<}";
-    position: relative;
-    top: -3px;
-    margin-right: 5px;
-  }
+}
+#demogrid {
+  clear: both;
 }
 .demogrid {
   background: @p-orange;
@@ -69,9 +63,11 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   .icon-list {
     list-style: none;
-    width: 11%;
+    width: 31%;
+    height: 1181px;
     float: left;
     margin: 0 1% 0 0;
+    .box-sizing();
     li {
       list-style: none;
       font-size: 1.5em;
@@ -91,6 +87,7 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 11px !important;
         font-weight: bold;
         color: rgba(0,0,0,0.60);
+        white-space: nowrap;
       }
     }
   }
@@ -136,8 +133,81 @@ h1, h2, h3, h4, h5, h6 {
 #tables {
   display: none;
 }
-
-
+.demoForm, .demoBtn {
+  .column(16);
+  padding: 10px;
+  ul {
+    .h-menu;
+    a {
+      display: inline-block !important;
+      padding: inherit !important;
+    }
+  }
+}
+.colors {
+  list-style: none;
+  display: block;
+  overflow: hidden;
+  margin: 10px 0 20px;
+  padding: 0;
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 56px;
+    height: 56px;
+    border-bottom: 5px solid transparent;
+  }
+  .p-red {
+    background: @p-red;
+    border-bottom-color: darken(@p-red, 20%);
+  }
+  .p-orange {
+    background: @p-orange;
+    border-bottom-color: darken(@p-orange, 20%);
+  }
+  .p-yellow {
+    background: @p-yellow;
+    border-bottom-color: darken(@p-yellow, 20%);
+  }
+  .p-lime {
+    background: @p-lime;
+    border-bottom-color: darken(@p-lime, 20%);
+  }
+  .p-green {
+    background: @p-green;
+    border-bottom-color: darken(@p-green, 20%);
+  }
+  .p-turquoise {
+    background: @p-turquoise;
+    border-bottom-color: darken(@p-turquoise, 20%);
+  }
+  .p-cyan {
+    background: @p-cyan;
+    border-bottom-color: darken(@p-cyan, 20%);
+  }
+  .p-ocean {
+    background: @p-ocean;
+    border-bottom-color: darken(@p-ocean, 20%);
+  }
+  .p-blue {
+    background: @p-blue;
+    border-bottom-color: darken(@p-blue, 20%);
+  }
+  .p-violet {
+    background: @p-violet;
+    border-bottom-color: darken(@p-violet, 20%);
+  }
+  .p-magenta {
+    background: @p-magenta;
+    border-bottom-color: darken(@p-magenta, 20%);
+  }
+  .p-raspberry {
+    background: @p-raspberry;
+    border-bottom-color: darken(@p-raspberry, 20%);
+  }
+}
 
 // Media Queries
 @media (min-width:480px) {
@@ -145,6 +215,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width:768px) {
   //@import "768";
+  .f-h4 {
+    &:before {
+      font-family: @p-mono;
+      color: @p-orange;
+      font-size: 12px;
+      content: "{>o<}";
+      position: relative;
+      top: -3px;
+      margin-right: 5px;
+    }
+  }
   #lists {
     .list-1 {
       .column(8);
@@ -174,6 +255,17 @@ h1, h2, h3, h4, h5, h6 {
   } 
   #tables {
     display: block;
+  }
+  .demoForm, .demoBtn {
+    .column(8);
+    ul {
+      .v-menu;
+    }
+  }
+  .iconDemo {
+    .icon-list {
+      width: 11%;
+    }
   }
 }
 @media (min-width:960px) {
