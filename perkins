@@ -40,7 +40,7 @@ perkins
 
 perkins
   .command('watch <path>')
-  .description('watch feature test')
+  .description('Watch changes on app.less and output them to out/stylesheets/style.css')
   .action(function(dir) {
     if (path.existsSync(dir)) {
       cli.info('Start watching');
