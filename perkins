@@ -51,18 +51,4 @@ perkins
     }
   });
 
-perkins
-  .command('debug [path]')
-  .description('Don\'t take me seriously... just for internal tests')
-  .action(function(dir) {
-    
-  });
-
-perkins
-  .command('pre [path]')
-  .description('Don\'t take me seriously... just for internal tests')
-  .action(function(dir) {
-
-  });
-
 perkins.parse(process.argv);
