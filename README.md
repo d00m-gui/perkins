@@ -9,7 +9,7 @@ In other words, **Perkins 2** is a **CLI** utility made with **NodeJS** to make 
   - Serve any folder with the integrated Preview HTTP Server
   - Watch changes on app.less and output them to out/stylesheets/style.css
 
-**Note: the server plays nice with LESS.js so the function less.watch(); works just fine (this means automatic page changes on save ;)**
+**Note: the server plays nice with LESS.js so the function less.watch(); works just fine (this means automatic page changes on save on multiple devices (just like Adobe Shadow) ;)**
 
 **BTW** If you aren't a command-line type of guy/girl you definitely have to use [Crunch App](http://crunchapp.net/) made by Matt and Matt.
 
@@ -39,12 +39,12 @@ First step you need to install [NodeJS](http://nodejs.org/) then [npm](http://np
     -h, --help         output usage information
     -V, --version      output the version number
     -p, --port <port>  specify the port [8000]
-    -m, --min          minifies Perkins into a css file.
+    -m, --min          minifies every less into out/style.css
     -v, --verbose      output incoming requests.
 
 ##TODO
   - Update the p.erkins.com website ;)
-  - Finishing the watch feature
+  - Make improvements over the 'watch' feature and the out/ dir
   
 ##Special Thanks:
   - Rodrigo Fuentealba
