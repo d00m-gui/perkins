@@ -22,7 +22,7 @@ perkins
   .command('preview [path]')
   .description('This option create a Perkins Preview HTTP Server')
   .action(function(dir){
-    if (path.existsSync(dir)) {
+    if (fs.existsSync(dir)) {
       server.preview(dir);
       cli.msg('Your preview server for '+dir+' is ready, Sir. on http://localhost:'+perkins.port);
       cli.info('You want to stop the preview? press Ctrl+C');
@@ -42,7 +42,7 @@ perkins
   .command('watch <path>')
   .description('Watch changes on app.less and output them to out/stylesheets/style.css')
   .action(function(dir) {
-    if (path.existsSync(dir)) {
+    if (fs.existsSync(dir)) {
       cli.info('Start watching');
       core.watch(dir);
     }
