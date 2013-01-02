@@ -1,0 +1,428 @@
+.box-sizing(@def: border-box) {
+  -webkit-box-sizing:           @def;
+  -moz-box-sizing:              @def;
+  box-sizing:                   @def;
+}
+
+.border-radius(@radius: 5px) {
+  -webkit-border-radius:        @radius;
+  -moz-border-radius:           @radius;
+  -ms-border-radius:            @radius;
+  -o-border-radius:             @radius;
+  border-radius:                @radius;
+}
+
+.box-shadow(@bsval: 0 6px 6px -6px rgba(0,0,0,0.80), @due: 0 0 0 transparent) {
+  -webkit-box-shadow: @bsval, @due;
+  -moz-box-shadow: @bsval, @due;
+  -ms-box-shadow: @bsval, @due;
+  -o-box-shadow: @bsval, @due;
+  box-shadow: @bsval, @due;
+}
+
+.text-shadow(@tsval: 0px 1px 0px rgba(255,255,255,0.80)) {
+  text-shadow: @tsval;
+}
+
+.transform(@scale: 1, @rotate: 0, @translateX: 0, @translateY: 0, @skewX: 0, @skewY: 0) {
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%; 
+  -o-transform-origin: 50% 50%; 
+  -ms-transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
+  -webkit-transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
+  -moz-transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
+  -o-transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
+  transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
+}
+
+.transition(@trans: all ease 0.2s) {
+  -webkit-transition: @trans;
+  -moz-transition: @trans;
+  transition: @trans;
+}
+.init3d(@style: preserve-3d, @backface: hidden) {
+  -webkit-transform-style: @style;
+  -moz-transform-style: @style;
+  transform-style: @style;
+  backface-visibility: @backface;
+  -webkit-backface-visibility: @backface;
+  -moz-backface-visibility: @backface;
+}
+.transform3d(@vals) {
+  -ms-transform: @vals;
+  -webkit-transform: @vals;
+  -moz-transform: @vals;
+  -o-transform: @vals;
+  transform: @vals;
+}
+
+#gradient {
+  .horizontal(@startColor: #555, @endColor: #333, @img: none) {
+    /* Legacy browsers */
+    background: @endColor @img;
+    /* Recent browsers */
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: auto auto !important;
+    background-size: 100% 100%;
+    background: @img, -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+    background: @img, -webkit-linear-gradient(right center, @startColor, @endColor);
+    background: @img, -moz-linear-gradient(right center, @startColor, @endColor);
+    background: @img, -o-linear-gradient(left,  @startColor,  @endColor);
+    background: @img, -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+  }
+  .vertical(@startColor: #555, @endColor: #333, @img: none) {
+    /* Legacy browsers */
+    background: @endColor @img;
+    /* Recent browsers */
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: auto auto !important;
+    background-size: 100% 100%;
+    background: @img, -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+    background: @img, -webkit-linear-gradient(@startColor, @endColor);
+    background: @img, -moz-linear-gradient(@startColor, @endColor);
+    background: @img, -o-linear-gradient(top,  @startColor,  @endColor);
+    background: @img, -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  }
+  .h-line(@startColor: #B0BAC5, @midColor1: #9DA7B2, @midColor2: #919CA8, @endColor: #7E8A98, @img: none) {
+    background: @endColor @img;
+    -o-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: auto auto !important;
+    background-size: 100% 100%;
+    background: @img, -moz-linear-gradient(top, @startColor 0%, @midColor1 50%, @midColor2 51%, @endColor 100%);
+    background: @img, -webkit-gradient(linear, left top, left bottom, color-stop(0%,@startColor), color-stop(50%,@midColor1), color-stop(51%,@midColor2), color-stop(100%,@endColor));
+  }
+}
+
+// Buttons
+.button(@color: #E6E6E6, @text_color: #444, @text_shadow: 0 1px 0 rgba(255,255,255,0.30), @padding: 0.7em 1em, @rounded: 0.2em, @font_weight: 300) {
+  display: inline-block;
+  padding: @padding;
+  color: @text_color;
+  line-height: 1;
+  border: 1px solid rgba(0, 0, 0, 0.30);
+  margin: 3px 0;
+  background: @color;
+  #gradient > .vertical(@color, darken(@color,5%));
+  .text-shadow(@text_shadow);
+  .border-radius(@rounded);
+  .box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
+  font-weight: @font_weight;
+  &:hover {
+    background: darken(@color,10%);
+    #gradient > .vertical(darken(@color,10%), @color);
+    .box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 2px 5px rgba(32,32,32,0.20) inset);
+    color: @text_color;
+    text-decoration: none;
+  }
+}
+
+// Navigation
+.nav(@parentSide: left, @childSide: left, @padding: 5px 10px, @margin: 0 10px 0 0) {
+  margin: 0;
+  padding: 0;
+  float: @parentSide;
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: @childSide;
+    a {
+      display: block;
+      padding: @padding;
+      margin: @margin;
+      text-decoration: none;
+    }
+  }
+}
+
+// Mixin by malarkey ~ 320 and up
+.font-size(@size: 16) {
+  @rem: (@size / 10);
+  font-size: @size * 1px;
+  font-size: ~"@{rem}rem";
+}
+
+// Drop Down Menu
+.dropdown-menu(@bg: #f4f4f4) {
+  margin: 0;
+  padding: 5px;
+  line-height: 100%;
+  display: inline-block;
+  background: @bg;
+  .border-radius(3px);
+  border: 1px solid #ccc;
+  li {
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    display: block;
+    padding: 8px 20px;
+    margin: 0;
+    .font-size(14);
+    color: #333;
+    .border-radius(2px);
+    &:hover {
+      color: #666;
+    }
+  }
+  ul {
+    background: @p-white;
+    visibility: hidden;
+    opacity: 0;
+    .transition();
+    margin: 0;
+    padding: 0;
+    width: 185px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 2000;
+    background: @bg;
+    .box-shadow(0 6px 6px -6px rgba(0,0,0,0.70));
+    border: 1px solid #ccc;
+  }
+  li:hover > ul {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    .transition();
+    li {
+      float: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  ul ul {
+    left: 181px;
+    top: -3px;
+  }
+  &:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+  }
+  li[data-darr] {
+    a {
+      padding:  8px 25px 8px 20px;
+    }
+    &:before {
+      font-family: 'icons';
+      content: '\e75c';
+      position: absolute;
+      right: 7px;
+      top: 0.3em;
+    }
+  }
+  li[data-rarr] {
+    a {
+      padding:  8px 25px 8px 20px;
+    }
+    &:before {
+      font-family: 'icons';
+      content: '\e75e';
+      position: absolute;
+      right: 10px;
+      top: 3px;
+    }
+  }
+}
+// Tag List
+.tag-list(@bgColor: #EFE394) {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  li {
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    margin: 0 0.85em 0 0;
+    &:before {
+      content:"";
+      .border-radius(3px);
+      #gradient > .vertical(@bgColor, darken(@bgColor, 20%));
+      border: 1px solid darken(@bgColor, 30%);
+      width: 19px;
+      height: 18px;
+      position: absolute;
+      z-index: 50;
+      right: -9px;
+      top: 4px;
+      .transform(1, -45deg);
+    }
+    &:after {
+      content:"";
+      .border-radius(100%);
+      width: 8px;
+      height: 8px;
+      background: @p-white;
+      position: absolute;
+      z-index: 150;
+      right: 1px;
+      top: 9px;
+      .box-shadow(0 1px 0 rgba(255,255,255,0.80), inset 0 1px 1px rgba(0,0,0,0.40));
+    }
+    span {
+      display: inline-block;
+      .border-radius(3px);
+      position: relative;
+      z-index: 100;
+      padding: 0.5em 1.7em 0.4em 1em;
+      font-size: 11px;
+      cursor: default;
+      color: darken(@bgColor, 40%);
+      border: 1px solid darken(@bgColor, 30%);
+      border-right: none;
+      #gradient > .vertical(@bgColor, darken(@bgColor, 20%));
+      .text-shadow(0 1px 0 rgba(255,255,255,0.40));
+      .box-shadow(0 1px 0 rgba(255,255,255,0.40), 0 1px 0 rgba(255,255,255,0.40) inset);
+      font-weight: bold;
+    }
+    a {
+      font-weight: bold;
+      color: darken(@bgColor, 45%);
+      font-size: 11px;
+      &:hover {
+        text-decoration: underline;
+        color: darken(@bgColor, 40%);
+      }
+    }
+  }
+}
+
+// UI Tabs credits to from http://tympanus.net/codrops/2012/04/12/animated-content-tabs-with-css3/
+.ui-tabs(@max-height: 200px, @active: #f4f4f4, @inactive: #666, @active-text: #333, @inactive-text: #f4f4f4) {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: @max-height;
+  .clear-tabs {
+    clear: both;
+    overflow: hidden;
+  }
+  input {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    height: 40px;
+    left: -200px;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    &:hover + label {
+      background: @active;
+      color: @active-text;
+    }
+    &:checked + label {
+      background: @active;
+      color: @active-text;
+      z-index: 6;
+    }
+  }
+  label {
+    background: @inactive;
+    color: @inactive-text;
+    line-height: 40px;
+    height: 40px;
+    position: relative;
+    padding: 0 20px;
+    float: left;
+    display: block;
+    text-align: center;
+    border: 1px solid transparent;
+    &:first-of-type {
+      z-index: 4;
+    }
+  }
+  .tab-content {
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    div {
+      .box-sizing();
+      width: 100%;
+      background: @active;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 20px;
+      z-index: 1;
+      opacity: 0;
+      .transition(all ease-out 0.3s);
+    }
+  }
+  input.tab-selector-1:checked ~ .tab-content .tab-content-1,
+  input.tab-selector-2:checked ~ .tab-content .tab-content-2,
+  input.tab-selector-3:checked ~ .tab-content .tab-content-3,
+  input.tab-selector-4:checked ~ .tab-content .tab-content-4,
+  input.tab-selector-5:checked ~ .tab-content .tab-content-5,
+  input.tab-selector-6:checked ~ .tab-content .tab-content-6,
+  input.tab-selector-7:checked ~ .tab-content .tab-content-7,
+  input.tab-selector-8:checked ~ .tab-content .tab-content-8,
+  input.tab-selector-9:checked ~ .tab-content .tab-content-9,
+  input.tab-selector-10:checked ~ .tab-content .tab-content-10 {
+    z-index: 100;
+    opacity: 1;
+    .transition(all ease-in 0.3s);
+  }
+}
+
+/*
+* Helpers
+*/
+
+.btn, input[type="submit"], button {
+  .button();
+}
+.sbtn {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 6px 5px 5px;
+  .border-radius(3px);
+}
+h1 a.btn, h2 a.btn, h3 a.btn {
+  padding: 25px 30px 20px !important;
+}
+
+/*
+  TODO Pills Menu
+*/
+
+.h-menu {
+  .nav();
+}
+.v-menu {
+  .nav(none, none, 10px 5px 5px, 0 0 -1px 0);
+}
+.t-menu {
+  .nav(left, left, 10px 20px 4px, 0 -1px 0 0);
+  a {
+    background: #f4f4f4;
+    &:hover {
+      background: #ddd;
+    }
+  }
+}
+.p-dropdown {
+  .dropdown-menu();
+}
+.p-tags {
+  .tag-list();
+}
+.p-tabs {
+  .ui-tabs();
+}
