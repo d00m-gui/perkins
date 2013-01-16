@@ -1,0 +1,7 @@
+/* Perkins LESS Framework, by Carlos Elias */
+/* Homepage:    p.erkins.com */
+/* About this:  humanstxt.org */
+
+Standards: HTML5, CSS3
+Components: LESS
+Software: Sublime Text 2, Github, Node
