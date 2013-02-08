@@ -970,6 +970,62 @@
     },
     {
       "search": [
+        "flow",
+        "cascade",
+        "junction"
+      ],
+      "code": 59280,
+      "from": 59280,
+      "uid": "898ddc67cb7d9ae53dbd4cce78043e9e",
+      "css": "flow-cascade",
+      "orig_css": "flow-cascade",
+      "orig_code": 59280,
+      "src": "entypo"
+    },
+    {
+      "search": [
+        "flow",
+        "branch",
+        "junction"
+      ],
+      "code": 59281,
+      "from": 59281,
+      "uid": "4bcb3aaa98736be3027bef7c76c55021",
+      "css": "flow-branch",
+      "orig_css": "flow-branch",
+      "orig_code": 59281,
+      "src": "entypo"
+    },
+    {
+      "search": [
+        "flow",
+        "tree",
+        "junction"
+      ],
+      "code": 59282,
+      "from": 59282,
+      "uid": "8a1d446e5555e76f82ddb1c8b526f579",
+      "css": "flow-tree",
+      "orig_css": "flow-tree",
+      "orig_code": 59282,
+      "src": "entypo"
+    },
+    {
+      "search": [
+        "flow",
+        "line",
+        "junction"
+      ],
+      "code": 59283,
+      "from": 59283,
+      "uid": "6cea40aa6cc50057083e4f0a5b92410c",
+      "css": "flow-line",
+      "orig_css": "flow-line",
+      "orig_code": 59283,
+      "src": "entypo"
+    },
+    {
+      "search": [
         "gauge",
         "meter",
         "speed",
@@ -1126,6 +1182,18 @@
       "from": 62226
     },
     {
+      "search": [
+        "linkedin"
+      ],
+      "code": 62226,
+      "from": 62226,
+      "uid": "8870252f5da59a63564fb6790a347c8e",
+      "css": "linkedin",
+      "orig_css": "linkedin-rect",
+      "orig_code": 62226,
+      "src": "websymbols"
+    },
+    {
       "searcj": [
         "youtube"
       ],
@@ -1276,6 +1344,19 @@
       "orig_code": 57348,
       "src": "entypo",
       "from": 128101
+    },
+    {
+      "search": [
+        "calendar",
+        "date"
+      ],
+      "code": 62227,
+      "from": 128197,
+      "uid": "531bc468eecbb8867d822f1c11f1e039",
+      "css": "calendar",
+      "orig_css": "calendar",
+      "orig_code": 62227,
+      "src": "fontawesome"
     },
     {
       "search": [
