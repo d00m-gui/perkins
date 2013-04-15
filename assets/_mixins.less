@@ -14,9 +14,6 @@
 
 .box-shadow(@bsval: 0 6px 6px -6px rgba(0,0,0,0.80), @due: 0 0 0 transparent) {
   -webkit-box-shadow: @bsval, @due;
-  -moz-box-shadow: @bsval, @due;
-  -ms-box-shadow: @bsval, @due;
-  -o-box-shadow: @bsval, @due;
   box-shadow: @bsval, @due;
 }
 
@@ -49,6 +46,36 @@
   backface-visibility: @backface;
   -webkit-backface-visibility: @backface;
   -moz-backface-visibility: @backface;
+}
+
+.scale(@size) {
+  -webkit-transform: scale(@size);
+  -moz-transform: scale(@size);
+  -ms-transform: scale(@size);
+  -o-transform: scale(@size);
+  transform: scale(@size);
+}
+.rotate(@deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  -ms-transform: rotate(@deg);
+  -o-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+.translate(@x, @y) {
+  -webkit-transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+.skew(@x, @y) {
+  -webkit-transform: skew(@x, @y);
+  -webkit-backface-visibility: hidden;
+  -moz-transform: skew(@x, @y);
+  -ms-transform: skewX(@x) skewY(@y);
+  -o-transform: skew(@x, @y);
+  transform: skew(@x, @y);
 }
 .transform3d(@vals) {
   -ms-transform: @vals;
@@ -145,6 +172,13 @@
   @rem: (@size / 10);
   font-size: @size * 1px;
   font-size: ~"@{rem}rem";
+}
+
+.placeholder-color(@color) {
+  &::-webkit-input-placeholder { color: @color; }
+  &:-ms-input-placeholder { color: @color; }
+  &:-moz-placeholder { color: @color; }
+  &::-moz-placeholder { color: @color; }
 }
 
 // Drop Down Menu
@@ -417,12 +451,49 @@ h1 a.btn, h2 a.btn, h3 a.btn {
     }
   }
 }
-.p-dropdown {
-  .dropdown-menu();
+
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+.clearfix {
+  *zoom:1;
+  &:before,
+  &:after {
+    content:"";
+    display:table;
+  }
+  &:after {
+    clear:both;
+  }
 }
-.p-tags {
-  .tag-list();
+// Clear
+.clear {
+  zoom: 1;
 }
-.p-tabs {
-  .ui-tabs();
+.clear:after {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+  content: ".";
+}
+.left {
+  float: left !important;
+}
+.right {
+  float: right !important;
+}
+.full {
+  width: 100%;
+}
+
+.tal {
+  text-align: left;
+}
+.tac {
+  text-align: center;
+}
+.tar {
+  text-align: right;
+}
+.taj {
+  text-align: justify;
 }

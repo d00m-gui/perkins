@@ -29,7 +29,6 @@ body {
   line-height: @p-baseline;
   font-family: @p-sans;
   color: @p-gray-darkest;
-  text-rendering: optimizeLegibility; // Linux and Windows
 }
 header, nav, footer, aside, article, section {
   display: block;
@@ -64,7 +63,7 @@ blockquote {
   .box-sizing();
 }
 mark, code {
-  background-color: #FFFCE1;
+  background: #FFFCE1;
   padding: 0 5px;
 }
 p {
@@ -80,11 +79,9 @@ pre {
   font-weight: 300;
   background: #383A3F;
   color: #99D2F3;
-  .border-radius(3px);
   overflow: auto;
   code {
     background: transparent;
-    .border-radius(0);
     padding: 0;
   }
 }
@@ -99,7 +96,12 @@ hr {
   width: 100%;
 }
 br {
+  margin: 0 0 1.45em;
+  width: 100%;
+  height: 1px;
+  float: none;
   overflow: hidden;
+  clear: both;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: @p-baseline;
@@ -133,7 +135,7 @@ li, label {
   font-size: @p-basefont;
   line-height: @p-baseline;
 }
-li ol li, li ul li{
+li ol li, li ul li {
   font-size: @p-basefont;
   line-height: @p-baseline;
 }
@@ -147,26 +149,6 @@ abbr {
   border-bottom: 1px dotted @system;
   font-style: italic;
   text-transform: uppercase;
-}
-
-acronym {
-  border-bottom: 1px dotted @system;
-  font-style: italic;
-  text-transform: uppercase;
-}
-
-address {
-  font-style: italic;
-}
-
-bdo {
-  font-weight: normal;
-  margin-bottom: 1.0em;
-}
-
-cite {
-  font-family: @p-sans;
-  font-style: italic;
 }
 
 code {
@@ -196,15 +178,6 @@ em {
   font-weight: normal;
 }
 
-ins {
-  text-decoration: underline;
-}
-
-kbd {
-  font-family: @p-mono;
-  font-style: italic
-}
-
 mark {
   font-family: @p-sans;
 }
@@ -221,26 +194,12 @@ pre {
   font-family: @p-mono;
 }
 
-q {
-  font-family: @p-serif;
-  font-weight: normal;
-}
-
-samp {
-  font-family: @p-mono;
-  font-weight: normal;
-}
-
 small {
   font-size: 75%;
 }
 
 strong {
   font-weight: bold;
-}
-
-var {
-  font-style: italic;
 }
 
 ul {
@@ -323,50 +282,4 @@ input, textarea, select {
   font-weight: normal;
   font-size: @p-basefont;
   line-height: @p-baseline;
-}
-
-  // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
-.clearfix {
-  *zoom:1;
-  &:before,
-  &:after {
-    content:"";
-    display:table;
-  }
-  &:after {
-    clear:both;
-  }
-}
-// Clear
-.clear {
-  zoom: 1;
-}
-.clear:after {
-  display: block;
-  visibility: hidden;
-  height: 0;
-  clear: both;
-  content: ".";
-}
-.left {
-  float: left !important;
-}
-.right {
-  float: right !important;
-}
-.full {
-  width: 100%;
-}
-
-.tal {
-  text-align: left;
-}
-.tac {
-  text-align: center;
-}
-.tar {
-  text-align: right;
-}
-.taj {
-  text-align: justify;
 }
