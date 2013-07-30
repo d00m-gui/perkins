@@ -5,15 +5,10 @@
 }
 
 .border-radius(@radius: 5px) {
-  -webkit-border-radius:        @radius;
-  -moz-border-radius:           @radius;
-  -ms-border-radius:            @radius;
-  -o-border-radius:             @radius;
-  border-radius:                @radius;
+  border-radius: @radius;
 }
 
 .box-shadow(@bsval: 0 6px 6px -6px rgba(0,0,0,0.80), @due: 0 0 0 transparent) {
-  -webkit-box-shadow: @bsval, @due;
   box-shadow: @bsval, @due;
 }
 
@@ -21,24 +16,37 @@
   text-shadow: @tsval;
 }
 
+.transition(@trans: all ease 0.2s) {
+  -webkit-transition: @trans;
+  transition: @trans;
+}
+
 .transform(@scale: 1, @rotate: 0, @translateX: 0, @translateY: 0, @skewX: 0, @skewY: 0) {
   -webkit-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
-  -ms-transform-origin: 50% 50%;
-  transform-origin: 50% 50%; 
-  -o-transform-origin: 50% 50%; 
-  -ms-transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
+  transform-origin: 50% 50%;
   -webkit-transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
-  -moz-transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
-  -o-transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
   transform: scale(@scale) rotate(@rotate) translateX(@translateX) translateY(@translateY) skewX(@skewX) skewY(@skewY);
 }
 
-.transition(@trans: all ease 0.2s) {
-  -webkit-transition: @trans;
-  -moz-transition: @trans;
-  transition: @trans;
+.scale(@size) {
+  -webkit-transform: scale(@size);
+  transform: scale(@size);
 }
+.rotate(@deg) {
+  -webkit-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+.translate(@x, @y) {
+  -webkit-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+.skew(@x, @y) {
+  -webkit-transform: skew(@x, @y);
+  -webkit-backface-visibility: hidden;
+  transform: skew(@x, @y);
+}
+
 .init3d(@style: preserve-3d, @backface: hidden) {
   -webkit-transform-style: @style;
   -moz-transform-style: @style;
@@ -47,81 +55,23 @@
   -webkit-backface-visibility: @backface;
   -moz-backface-visibility: @backface;
 }
-
-.scale(@size) {
-  -webkit-transform: scale(@size);
-  -moz-transform: scale(@size);
-  -ms-transform: scale(@size);
-  -o-transform: scale(@size);
-  transform: scale(@size);
-}
-.rotate(@deg) {
-  -webkit-transform: rotate(@deg);
-  -moz-transform: rotate(@deg);
-  -ms-transform: rotate(@deg);
-  -o-transform: rotate(@deg);
-  transform: rotate(@deg);
-}
-.translate(@x, @y) {
-  -webkit-transform: translate(@x, @y);
-  -moz-transform: translate(@x, @y);
-  -ms-transform: translate(@x, @y);
-  -o-transform: translate(@x, @y);
-  transform: translate(@x, @y);
-}
-.skew(@x, @y) {
-  -webkit-transform: skew(@x, @y);
-  -webkit-backface-visibility: hidden;
-  -moz-transform: skew(@x, @y);
-  -ms-transform: skewX(@x) skewY(@y);
-  -o-transform: skew(@x, @y);
-  transform: skew(@x, @y);
-}
 .transform3d(@vals) {
-  -ms-transform: @vals;
   -webkit-transform: @vals;
-  -moz-transform: @vals;
-  -o-transform: @vals;
   transform: @vals;
 }
 
 #gradient {
   .horizontal(@startColor: #555, @endColor: #333, @img: none) {
-    /* Legacy browsers */
     background: @endColor @img;
-    /* Recent browsers */
-    -o-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -webkit-background-size: auto auto !important;
     background-size: 100% 100%;
-    background: @img, -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
-    background: @img, -webkit-linear-gradient(right center, @startColor, @endColor);
-    background: @img, -moz-linear-gradient(right center, @startColor, @endColor);
-    background: @img, -o-linear-gradient(left,  @startColor,  @endColor);
-    background: @img, -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+    background: @img, -webkit-linear-gradient(left,  @startColor,  @endColor);
+    background: @img, linear-gradient(90deg,  @startColor,  @endColor);
   }
   .vertical(@startColor: #555, @endColor: #333, @img: none) {
-    /* Legacy browsers */
     background: @endColor @img;
-    /* Recent browsers */
-    -o-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -webkit-background-size: auto auto !important;
     background-size: 100% 100%;
-    background: @img, -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-    background: @img, -webkit-linear-gradient(@startColor, @endColor);
-    background: @img, -moz-linear-gradient(@startColor, @endColor);
-    background: @img, -o-linear-gradient(top,  @startColor,  @endColor);
-    background: @img, -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-  }
-  .h-line(@startColor: #B0BAC5, @midColor1: #9DA7B2, @midColor2: #919CA8, @endColor: #7E8A98, @img: none) {
-    background: @endColor @img;
-    -o-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -webkit-background-size: auto auto !important;
-    background-size: 100% 100%;
-    background: @img, -moz-linear-gradient(top, @startColor 0%, @midColor1 50%, @midColor2 51%, @endColor 100%);
-    background: @img, -webkit-gradient(linear, left top, left bottom, color-stop(0%,@startColor), color-stop(50%,@midColor1), color-stop(51%,@midColor2), color-stop(100%,@endColor));
+    background: @img, -webkit-linear-gradient(top,  @startColor,  @endColor);
+    background: @img, linear-gradient(180deg,  @startColor,  @endColor);
   }
 }
 
@@ -175,10 +125,10 @@
 }
 
 .placeholder-color(@color) {
-  &::-webkit-input-placeholder { color: @color; }
-  &:-ms-input-placeholder { color: @color; }
-  &:-moz-placeholder { color: @color; }
-  &::-moz-placeholder { color: @color; }
+  ::-webkit-input-placeholder { color: @color; }
+  :-ms-input-placeholder { color: @color; }
+  :-moz-placeholder { color: @color; }
+  ::-moz-placeholder { color: @color; }
 }
 
 // Drop Down Menu
@@ -414,28 +364,6 @@
   }
 }
 
-/*
-* Helpers
-*/
-
-.btn, input[type="submit"], button {
-  .button();
-}
-.sbtn {
-  font-size: 11px;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 6px 5px 5px;
-  .border-radius(3px);
-}
-h1 a.btn, h2 a.btn, h3 a.btn {
-  padding: 25px 30px 20px !important;
-}
-
-/*
-  TODO Pills Menu
-*/
-
 .h-menu {
   .nav();
 }
@@ -493,7 +421,4 @@ h1 a.btn, h2 a.btn, h3 a.btn {
 }
 .tar {
   text-align: right;
-}
-.taj {
-  text-align: justify;
 }

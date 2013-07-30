@@ -1,6 +1,6 @@
 // CSS Reset by Eric Meyer
 html, body { margin: 0; padding: 0; }
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; font-weight: normal; font-style: normal; font-size: 100%; line-height: 1; font-family: inherit; text-align: left; }
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td, figure { margin: 0; padding: 0; border: 0; font-weight: normal; font-style: normal; font-size: 100%; line-height: 1; font-family: inherit; text-align: left; }
 table { border-collapse: collapse; border-spacing: 0; }
 ol, ul { list-style: none; }
 q:before, q:after, blockquote:before, blockquote:after { content: ""; }
@@ -29,9 +29,6 @@ body {
   line-height: @p-baseline;
   font-family: @p-sans;
   color: @p-gray-darkest;
-}
-header, nav, footer, aside, article, section {
-  display: block;
 }
 a {
   border: none;
@@ -72,6 +69,7 @@ p {
   line-height: @p-baseline;
 }
 pre {
+  font-family: @p-mono;
   line-height: 1.2;
   .font-size(12);
   margin: 0;
@@ -182,16 +180,8 @@ mark {
   font-family: @p-sans;
 }
 
-meter {
-  font-weight: normal;
-}
-
 p {
   font-weight: normal;
-}
-
-pre {
-  font-family: @p-mono;
 }
 
 small {
@@ -239,15 +229,6 @@ dl {
   dd {
     margin: 0px 0px 0px 20px;
     padding-bottom: 5px;
-  }
-}
-fieldset {
-  border: 1px solid @system;
-  margin: 0 0 18px 0;
-  padding: 10px;
-  legend {
-    color: darken(@system, 40%);
-    padding: 0 10px;
   }
 }
 input, select, textarea {
