@@ -9,7 +9,7 @@
 - I force `IE=edge` for lastest IE engine, and use Chrome Frame if installed
 - My `viewport` by default without user zoom and support for iPhone 5 bigger screen
 - I am a `apple-mobile-web-app-capable` for fullscreen on mobile
-- I am truely `handheldfriendly`
+- I am truly `handheldfriendly`
 - They made me `mobileoptimized`
 - I see `cleartype` on Mobile IE
 
