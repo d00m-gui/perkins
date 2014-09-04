@@ -15,17 +15,35 @@ Font license info
    Copyright (C) 2012 by Dave Gandy
 
    Author:    Dave Gandy
-   License:   CC BY 3.0 (http://creativecommons.org/licenses/by/3.0/)
+   License:   SIL ()
    Homepage:  http://fortawesome.github.com/Font-Awesome/
+
+
+## MFG Labs
+
+   Copyright (C) 2012 by Daniel Bruce
+
+   Author:    MFG Labs
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://www.mfglabs.com/
 
 
 ## Entypo
 
    Copyright (C) 2012 by Daniel Bruce
 
-   Author:    Daniel Buce
+   Author:    Daniel Bruce
    License:   SIL (http://scripts.sil.org/OFL)
    Homepage:  http://www.entypo.com
+
+
+## Zocial
+
+   Copyright (C) 2012 by Sam Collins
+
+   Author:    Sam Collins
+   License:   MIT (http://opensource.org/licenses/mit-license.php)
+   Homepage:  http://zocial.smcllns.com/
 
 
 ## Iconic
@@ -37,13 +55,22 @@ Font license info
    Homepage:  http://somerandomdude.com/work/iconic/
 
 
-## Typicons
+## Fontelico
 
-   (c) Stephen Hutchings 2012
+   Copyright (C) 2012 by Fontello project
 
-   Author:    Stephen Hutchings
-   License:   CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
-   Homepage:  http://typicons.com/
+   Author:    Crowdsourced, for Fontello project
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://fontello.com
+
+
+## Elusive
+
+   Copyright (C) 2013 by Aristeides Stathopoulos
+
+   Author:    Aristeides Stathopoulos
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://aristeides.com/
 
 
 ## Web Symbols
@@ -52,6 +79,15 @@ Font license info
 
    Author:    Just Be Nice studio
    License:   SIL (http://scripts.sil.org/OFL)
-   Homepage:  http://www.justbenicestudio.com/studio/websymbols/
+   Homepage:  http://www.justbenicestudio.com/
+
+
+## Maki
+
+   Copyright (C) Mapbox, LCC
+
+   Author:    Mapbox
+   License:   BSD (https://github.com/mapbox/maki/blob/gh-pages/LICENSE.txt)
+   Homepage:  http://mapbox.com/maki/
 
 
