@@ -1,10 +1,15 @@
 {
   "name": "perkins",
-  "version": "4.0.0-beta",
+  "version": "4.0.0",
   "description": "Design & Develop the web Faster",
   "main": "app.less",
   "repository": {
     "type": "git",
     "url": "git://github.com/carloselias/perkins.git"
-  }
+  },
+  "homepage": "https://github.com/carloselias/perkins",
+  "authors": [
+    "Carlos Elias <hola@carloselias.cl>"
+  ],
+  "license": "MIT"
 }
