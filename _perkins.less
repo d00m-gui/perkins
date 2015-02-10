@@ -1,21 +1,14 @@
 /*
 # Perkins
 design & develop the web faster
-## There are some things you should know about me, Sir.
-- I do my best at following Conventions over Configurations
-- I force `IE=edge` for lastest IE engine, and use Chrome Frame if installed
-- My `viewport` by default without user zoom and support for iPhone 5 bigger screen
-- I am a `apple-mobile-web-app-capable` for fullscreen on mobile
-- I am truely `handheldfriendly`
-- They made me `mobileoptimized`
-- I see `cleartype` on Mobile IE
 
-## By design
-- My root font size is `font-size: 62.5%; so that I can express rems as pixels ej. 1.6rem = 16px
-- You can edit any variable in your my style (app.less by default)
+## These are some things you should know about me, Sir.
+- I do my best at following Conventions over Configurations
+- My root font size is `font-size: 62.5%; so that I can express rems units as pixels ej. 1.6rem = 16px
+- You can edit any variable in your style less file (app.less by default)
 - They setup my base font size at 16px `@p-basefont: 1.6rem;`
-- Also my unitless line-height is 1.2 `@p-baseline: 1.2;`
-- You have access to `@p-white`, `@p-black`, `@p-background-color`, `@p-link-color` and `@p-link-hover` color variables
+- Also my unitless line-height is 1.1 `@p-baseline: 1.2;`
+- You have access to `@p-white`, `@p-black`, `@p-background-color`, `@p-link-color` and `@p-link-hover` color variables for a quick setup
 
 */
 
@@ -151,8 +144,8 @@ design & develop the web faster
   ::-moz-placeholder { color: @color; }
 }
 
-.center(@position: relative) {
-  display: block;
+.center(@position: relative, @display: block) {
+  display: @display;
   position: @position;
   left: 50%;
   .transform(translateX(-50%));
@@ -179,6 +172,18 @@ design & develop the web faster
     background-size: 100% 100%;
     background: @img, -webkit-linear-gradient(top,  @startColor,  @endColor);
     background: @img, linear-gradient(180deg,  @startColor,  @endColor);
+  }
+  .radial(@startColor, @endColor, @img: none) {
+    background: @img, @endColor;
+    background: @img, -webkit-radial-gradient(center, ellipse cover,  @startColor, @endColor);
+    background: @img, -o-radial-gradient(center, ellipse cover,  @startColor, @endColor);
+    background: @img, -ms-radial-gradient(center, ellipse cover,  @startColor, @endColor);
+    background: @img, radial-gradient(ellipse at center,  @startColor, @endColor);
+  }
+  .custom(@arguments) {
+    background-size: 100% 100%;
+    background: -webkit-linear-gradient(@arguments);
+    background: linear-gradient(@arguments);
   }
 }
 
@@ -503,12 +508,12 @@ design & develop the web faster
 
 /*
 ### Core Structure
-This component add basic general styles for links, blockquote, mark, paragraphs, pre, hr, br, headings, abbr, code, del, strong, em, small, sets a natural box model usign `box-sizing: border-box;`, set the base font size at 16px usign rem, force a better type render, adds a small transition to links,
+This component add basic general styles for links, blockquote, mark, paragraphs, pre, hr, br, headings, abbr, code, del, strong, em, small, sets a natural box model usign `box-sizing: border-box;`, set the base font size at 16px usign rem, force a better type render, adds a small transition to links.
 `@use-core-structure: true`
 */
 .core-structure(@use-core-structure);
 .core-structure(@boolean) when (@boolean = true) {
-  /* Apply a natural box model to all elements as suggested by Jon Neal */
+  // Apply a natural box model to all elements as suggested by Jon Neal
   *, *:before, *:after {
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
@@ -736,7 +741,7 @@ This component add basic general styles for links, blockquote, mark, paragraphs,
 
 /*
 ### Tables & tables style
-I think of myself as a never opinionated framework so tables styles are disabled by default so you can have full control
+I think of myself as an open-minded-non-opinionated _framework_ so tables styles are disabled by default so you Sir can have full control
 `@use-tables: false`
 `@use-tables-styles: false`
 */
@@ -1897,7 +1902,7 @@ default: `@use-class-grid: false`
 
 /*
 ### Feedback
-Use when you need to inform your users import `_feedback.less` that includes 6 styles and a mixin for creating more
+Use when you need to inform your users. Turn `@use-feedback: true` that will include 6 styles and the mixin for creating more
 _HTML Usage_
 ```html
 <p class="notice"><b>Notice</b> Duis aute irure dolor in reprehenderit <a href="javascript:void(0);">in voluptate velit esse cillum</a> dolore eu fugiat nulla pariatur.</p>
@@ -2190,7 +2195,7 @@ Modified defaults for Perkins "Conventions over Configuration"
 _inpired by RMSforms http://rmsjr.com_
 */
 /*
-All of the modifier classes should be applied to form uls and are used to present the structure:
+All the modifier classes should be applied to ULs these are used for structure:
 ```html
 <ul class="form">
   <li>
@@ -2199,7 +2204,7 @@ All of the modifier classes should be applied to form uls and are used to presen
   </li>
 </ul>
 ```
-Each letter represented in the class name represents the orientation of the li - label - input elements respectively.
+Each letter represents the orientation of the li - label - input elements respectively.
 * h = horizontal block element
 * v = vertical block element
 * i = inline element
